@@ -10,4 +10,5 @@
     <title>AResume</title>
 
     <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/landing-page.css" />
 </head>

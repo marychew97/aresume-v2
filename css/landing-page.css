@@ -1,0 +1,8 @@
+.jumbotron{
+    height: 80vh;
+}
+
+.container .row{
+    padding-top:10%;
+    padding-bottom:10%;
+}
