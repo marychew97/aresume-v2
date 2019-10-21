@@ -1,0 +1,16 @@
+.cards-collection{
+    padding: 30px;
+}
+
+.card {
+    width: 15%;
+    border: none;
+}
+
+.card button{
+    display: block;
+    margin: auto;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
