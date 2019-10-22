@@ -1,12 +1,3 @@
-.cards-collection{
-    padding: 30px;
-}
-
-.card {
-    width: 15%;
-    border: none;
-}
-
 .card button{
     display: block;
     margin: auto;
@@ -14,3 +5,10 @@
     margin-bottom: 50%;
 }
 
+.card{
+    margin: 50px;
+}
+
+.card-subsection{
+    text-align: center;
+}

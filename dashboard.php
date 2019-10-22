@@ -2,16 +2,21 @@
 <body>
 <?php require("components/navbar.php"); ?>
 
-<div class="cards-collection">
-    <div class="card bg-dark text-white">
-    <img src="images/aresume-template.png" class="card-img" alt="...">
-    <div class="card-img-overlay">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Details
-        </button>
+<div class="card">
+  <div class="card-header">
+    <h5>My Resume Collection</h5>
+  </div>
+  <div class="card-body">
+    
+    <hr/>
+    <div class="card-subsection">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Create</a>
     </div>
-    </div>
+  </div>
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
