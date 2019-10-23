@@ -1,14 +1,54 @@
-.card button{
+body{
+    background-color: #2B303A;
+}
+
+.card-collection button{
     display: block;
     margin: auto;
     margin-top: 50%;
     margin-bottom: 50%;
 }
 
-.card{
+.card-collection{
     margin: 50px;
 }
 
 .card-subsection{
     text-align: center;
+}
+
+.form-content{
+    padding: 50px;
+}
+
+.form-content .btn{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-content .card-header{
+    background-color: #D64933;
+}
+
+.form-card{
+    margin-top: 50px;
+}
+
+.form-card .card{
+    border: none;
+}
+
+.custom-file{
+    margin-top:20px; 
+    margin-bottom:20px; 
+}
+
+.btn-file{
+    background-color: #2B303A;
+    border: none;
+}
+
+.btn-file:hover{
+    background: #2B303A;
 }

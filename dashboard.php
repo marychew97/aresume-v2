@@ -2,7 +2,7 @@
 <body>
 <?php require("components/navbar.php"); ?>
 
-<div class="card">
+<div class="card card-collection">
   <div class="card-header">
     <h5>My Resume Collection</h5>
   </div>
