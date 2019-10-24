@@ -23,11 +23,6 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     Upload your videos
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                    <button class="btn btn-primary btn-file">ADD</button>
                 </div>
                 </div>
             </div>
@@ -61,11 +56,13 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                     Upload your photos
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                    <button class="btn btn-primary btn-file">ADD</button>
+                    <form method="POST" action="upload.php" enctype="multipart/form-data">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="file" id="file">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        <input class="btn btn-primary btn-file" type="submit" value="submit" name="submit" />
+                    </form>
                 </div>
                 </div>
             </div>

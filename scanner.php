@@ -13,8 +13,29 @@
     <link rel="stylesheet" href="css/navbar.css" />
 </head>
 
+<?php 
+  require('config/db.php');
+?>
+
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
+    <a-assets>
+      <?php 
+        $sql = "SELECT * FROM images";
+        $result = mysqli_query($conn, $sql);
+        $rowcount = mysqli_num_rows($result);
+        if($rowcount > 0){
+          while($rowcount = mysqli_fetch_assoc($result)){
+            $_SESSION['image'] = $rowcount['image'];
+          
+      ?>
+          <img id="1" src=<?php echo $_SESSION['image']; ?>/>
+      <?php
+        }
+      }
+      ?>
+      <img id=""/>
+    </a-assets>
       <a-marker preset="hiro">
           <a-box position='0 0.5 0' material='color: yellow;'></a-box>
       </a-marker>
