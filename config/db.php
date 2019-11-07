@@ -1,4 +1,8 @@
 <?php 
+    // $server = '54.236.164.229';
+    // $host = 'root';
+    // $password = 'lamp-aws';
+    // $database = 'aresume';
     $server = 'localhost';
     $host = 'root';
     $password = '';
