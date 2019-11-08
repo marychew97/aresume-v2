@@ -13,27 +13,24 @@
         )
     })
 
-    $('#signup').submit(function(e){
+    $(function () {
+        $('#signup').on('submit', function (e) {
         e.preventDefault();
-        // var formData = new FormData(this);
-        $('#username').val('');
-        $('#email').val('');
-        $('#password').val('');
-        $('#confirm').val('');
-        // request = $.ajax({
-        //     type: 'POST',
-        //     url: 'signup.php',
-        //     dataType: 'json',
-        //     data: formData,
-        //     success: function(data){
-        //         $('#username').val('');
-        //         $('#email').val('');
-        //         $('#password').val('');
-        //         $('#confirm').val('');
-        //         console.log('submitted successfully');
-        //     }
-        // })
-    })
+        $.ajax({
+            type: 'post',
+            url: 'signup.php',
+            data: $('#form').serialize(),
+            success: function (data) {
+                console.log(data);
+
+                $('#username').val('');
+                $('#email').val('');
+                $('#password').val('');
+                $('#confirm').val('');
+            }
+        });
+        });
+    });
 </script>
 
 </body>
