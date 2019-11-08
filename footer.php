@@ -12,6 +12,28 @@
             '<div class="custom-file"><input type="file" class="custom-file-input" id="customFile"><label class="custom-file-label" for="customFile">Choose file</label></div>'
         )
     })
+
+    $('#signup').submit(function(e){
+        e.preventDefault();
+        // var formData = new FormData(this);
+        $('#username').val('');
+        $('#email').val('');
+        $('#password').val('');
+        $('#confirm').val('');
+        // request = $.ajax({
+        //     type: 'POST',
+        //     url: 'signup.php',
+        //     dataType: 'json',
+        //     data: formData,
+        //     success: function(data){
+        //         $('#username').val('');
+        //         $('#email').val('');
+        //         $('#password').val('');
+        //         $('#confirm').val('');
+        //         console.log('submitted successfully');
+        //     }
+        // })
+    })
 </script>
 
 </body>
