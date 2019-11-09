@@ -12,7 +12,7 @@
         $result = mysqli_query($conn, $sql);
 
         if($result){
-            echo "Success";
+            echo "Signed up successfully! Redirecting to your dashboard...";
         }
 
         // $sql2 = "SELECT * FROM user WHERE email = $email";

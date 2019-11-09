@@ -33,6 +33,7 @@
       </nav>
       <div class="tab-content" id="nav-tabContent" >
         <div class="tab-pane fade show active" id="nav-signup" role="tabpanel" aria-labelledby="nav-signup-tab">
+          <div class="alert alert-primary" id="signup-notification" role="alert" style="display:none"></div>
           <form method="post" action="signup.php" id="signup">
           <div class="modal-body">
             <div class="form-group">

@@ -10,12 +10,16 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">
+      <?php 
+        if(!empty($_SESSION['username'])){
+      ?>
       <li class="nav-item active">
         <a class="nav-link" href="#">Sign in</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Sign out</a>
       </li>
+        <?php } ?>
     </ul>
   </div>
 </nav>

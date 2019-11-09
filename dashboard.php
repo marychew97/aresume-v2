@@ -39,4 +39,4 @@
   </div>
 </div>
 
-<?php require("components/footer.php"); ?>
+<?php require("footer.php"); ?>
