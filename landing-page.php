@@ -1,6 +1,6 @@
 <?php require("components/header.php"); ?>
 <body>
-<?php require("components/navbar.php"); ?>
+<?php require("navbar.php"); ?>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="row">
@@ -60,6 +60,7 @@
           </form>
         </div>
         <div class="tab-pane fade" id="nav-signin" role="tabpanel" aria-labelledby="nav-signin-tab">
+          <div class="alert alert-primary" id="signin-notification" role="alert" style="display:none"></div>
           <form method="post" action="signin.php" id="signin">
           <div class="modal-body">
             <div class="form-group">

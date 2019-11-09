@@ -13,7 +13,7 @@
         )
     })
 
-        $('#signup').on('submit', function (e) {
+    $('#signup').on('submit', function (e) {
         e.preventDefault();
         var username = $('#username').val();
         var email = $('#email').val();
@@ -38,7 +38,29 @@
                 $('#confirm').val('');
             }
         });
+    });
+
+    $('#signin').on('submit', function (e) {
+        e.preventDefault();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        
+        var formData = $('#signin').serialize();
+        console.log(formData)
+
+        $.ajax({
+            type: 'post',
+            url: 'signin.php',
+            data: formData,
+            success: function (data) {
+                console.log(data);
+                $('#signin-notification').append('<p>'+data+'</p>').css("display", "block");
+                window.location.href="/aresume/dashboard.php"
+                $('#email').val('');
+                $('#password').val('');
+            }
         });
+    });
 </script>
 
 </body>

@@ -1,6 +1,6 @@
 <?php require("components/header.php"); ?>
 <body>
-<?php require("components/navbar.php"); ?>
+<?php require("navbar.php"); ?>
 
 <div class="card card-collection">
   <div class="card-header">

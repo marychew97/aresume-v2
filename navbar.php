@@ -1,3 +1,4 @@
+<?php session_start();?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">
       <img src="images/resumelogo.png" alt="aresume logo" width="100px" height="50px"/>
@@ -10,16 +11,14 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">
-      <?php 
-        if(!empty($_SESSION['username'])){
-      ?>
+      <?php if(!empty($_SESSION['username'])) { ?>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Sign in</a>
+        <a class="nav-link" href="#"><?php echo $_SESSION['username'];?></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sign out</a>
+        <a class="nav-link" href="signout.php">Sign out</a>
       </li>
-        <?php } ?>
+      <?php } ?>
     </ul>
   </div>
 </nav>
