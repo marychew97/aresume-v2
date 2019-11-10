@@ -47,8 +47,43 @@
 .btn-file{
     background-color: #2B303A;
     border: none;
+    display: block;
+    margin: auto;
+}
+
+.btn-add{
+    background-color: #D64933;
+    border: 2px solid #2B303A;
+}
+
+.btn-add:hover{
+    background-color: #D64933;
+    border: 2px solid #2B303A;
+    box-shadow: 2px 2px 5px #2B303A;
 }
 
 .btn-file:hover{
     background: #2B303A;
+}
+
+.tab-container{
+    margin-top: 50px;
+}
+
+.left-container, .right-container{
+    color: #fff;
+}
+
+.left-container img{
+    width: 50%;
+    height: 80%;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.right-container{
+    padding: 20px;
+    background-color: #D64933;
+    box-shadow: 2px 2px 10px rgb(87, 87, 87);
 }
