@@ -49,9 +49,34 @@
     border: none;
     display: block;
     margin: auto;
+    position: relative;
+    overflow: hidden;
+    width: 20%;
+    margin-top: 40px;
 }
 
-.btn-add{
+@media (max-width: 500px){
+    .btn-file{
+        width: 100%;
+    }
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;   
+    cursor: inherit;
+    display: block;
+}
+
+/* .btn-add{
     background-color: #D64933;
     border: 2px solid #2B303A;
 }
@@ -60,10 +85,15 @@
     background-color: #D64933;
     border: 2px solid #2B303A;
     box-shadow: 2px 2px 5px #2B303A;
-}
+} */
 
 .btn-file:hover{
     background: #2B303A;
+}
+
+.btn-delete{
+    display: block;
+    margin: auto;
 }
 
 .tab-container{

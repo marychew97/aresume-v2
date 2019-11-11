@@ -61,6 +61,62 @@
             }
         });
     });
+
+    $('#addVideobutton').on('click', function(e){
+        e.preventDefault();
+        $('#addVideos').append('<div class="custom-file"><input type="file" class="custom-file-input" id="video-input" aria-describedby="inputGroupFileAddon01"><label class="custom-file-label" for="inputGroupFile01">Choose file</label></div>');
+    });
+
+    // $('#video-input').on('change', function(){
+    //     var filename = $(this).val();
+    //     $(this).next('.custom-file-label').html(filename);
+    // });
+
+    $('#photo-input').on('change', function(){
+        ($('#image-upload-form').submit());
+    });
+    
+    $('#image-upload-form').on('submit', function(e){
+        var formData = new FormData(this);
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'image-upload.php',
+            data: formData,
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                // console.log(data[0].image);
+                $('#addPhotos').append("<img src='uploads/images/"+data.image+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
+            }
+        })
+    });
+        
+    $('.btn-delete').on('click', function(e){
+        var id = $(this).attr('id');
+        $('#delete-id').val(id);
+
+        formData = new FormData(this);
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'delete-image.php',
+            data: formData,
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                // console.log(data[0].image);
+                alert(data);
+            }
+        })
+    });
+
+    // $('#document-input').on('change', function(){
+    //     var filename = $(this).val();
+    //     $(this).next('.custom-file-label').html(filename);
+    // });
 </script>
 
 </body>

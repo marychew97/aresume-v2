@@ -1,7 +1,7 @@
 <?php require("components/header.php"); ?>
 <body>
 <?php require("navbar.php"); ?>
-
+<?php require("config/db.php"); ?>
 
 <div class="container-fluid form-content">
     <div class="progress" style="height: 30px">
@@ -14,10 +14,10 @@
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fa fa-video-camera"  aria-hidden="true"></i>&nbsp;&nbsp;Videos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;Photos</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Documents</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Documents</a>
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;Photos</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -30,10 +30,10 @@
                     <div class="col md-8 right-container">
                     <h4>Upload your videos</h4>
                     <form method="POST" action="video-upload.php" enctype="multipart/form-data">
-                    <div id="addVideos">
+                        <div id="addVideos">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <input type="file" class="custom-file-input" id="video-input" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
                         </div>
                         <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button>
@@ -47,14 +47,14 @@
         <div class="container">
                 <div class="row">
                     <div class="col md-4 left-container">
-                        <img src="images/photo.png" alt="video-image"/>
+                        <img src="images/folder-flat.png" alt="folder-image"/>
                     </div>
                     <div class="col md-8 right-container">
-                    <h4>Upload your photos</h4>
+                    <h4>Upload your documents</h4>
                     <form method="POST" action="document-upload.php" enctype="multipart/form-data">
-                    <div id="addDocuments">
+                        <div id="addDocuments">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
+                                <input type="file" class="custom-file-input" id="document-input" aria-describedby="inputGroupFileAddon01">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                         </div>
@@ -66,26 +66,79 @@
             </div>
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <div class="container">
-                <div class="row">
-                    <div class="col md-4 left-container">
-                        <img src="images/folder-flat.png" alt="video-image"/>
-                    </div>
-                    <div class="col md-8 right-container">
-                    <h4>Upload your documents</h4>
-                    <form method="POST" action="image-upload.php" enctype="multipart/form-data">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="file" id="file">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
+        <!-- <div class="container">
+                <div class="row"> -->
+                    <!-- <div class="col md-4 left-container">
+                        <img src="images/photo.png" alt="photo-image"/>
+                    </div> -->
+                    <!-- <div class="col md-8 right-container"> -->
+                    <h4 style="margin-top: 50px; text-align:center">Upload your photos</h4>
+                    <form method="POST" action="image-upload.php" enctype="multipart/form-data" id="image-upload-form">
+                    <span class="btn btn-primary btn-file"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="photo-input"/></span>
+                        <!-- <div id="addPhotos">
+                            <input type="file" name="files[]" id="files" multiple /> -->
+                            <!-- <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="file[]" id="photo-input" aria-describedby="inputGroupFileAddon01" multiple>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div> -->
+                        <!-- </div> -->
+                        <div id="gallery" class="container">
+                            <div class="row" style="padding-top:10px">
+                                
+                                <?php 
+                                    $sql = "SELECT * FROM images";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    $rowcount = mysqli_num_rows($result);
+                                    if($rowcount > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            $id = $row['id'];
+                                            $image = $row['image'];
+                                ?>
+                                <div class="col col-sm-3" id="addPhotos">
+                                    <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
+                                    <br/>
+                                    <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
+                                </div>
+                                <?php
+                                        }
+                                    }
+                                ?>
+                            </div>
                         </div>
-                        <button class="btn btn-primary btn-add" id="addImgbutton" style="color: #2B303A">Add</button>
-                        <button class="btn btn-primary btn-file" type="submit" name="submit"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Upload</button>
+                        
+                        <!-- <button class="btn btn-primary btn-add" id="addImgbutton" style="color: #2B303A">Add</button> -->
+                        <!-- <button class="btn btn-primary btn-file" type="submit" name="submit"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Upload</button> -->
                     </form>
-                    </div>
-                </div>
+                    <!-- </div>
+                </div> -->
             </div>
         </div></div>
     </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete image?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="delete-image.php" >
+                <div class="modal-body">
+                    Are you sure you want to delete this image?
+                    <input type="hidden" id="delete-id" name="id"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+            </div>
+        </div>
     </div>
     <!-- <div class="row">
         <div class="col-md">
