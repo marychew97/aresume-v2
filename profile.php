@@ -31,13 +31,13 @@
                         <div class="col col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="Your name">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your name">
                             </div>
                         </div>
                         <div class="col col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Current Job</label>
-                                <input type="text" class="form-control" name="job" id="exampleInputPassword1" placeholder="What do you do?">
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="What do you do?">
                             </div>
                         </div>
                     </div>
@@ -45,27 +45,27 @@
                         <div class="col col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email">
                             </div>
                         </div>
                         <div class="col col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Phone</label>
-                                <input type="text" class="form-control" name="phone" id="exampleInputPassword1" placeholder="Your contact number">
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your contact number">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Location</label>
-                        <input type="text" class="form-control" name="location" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Where do you live?">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Where do you live?">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Summary</label>
-                        <textarea class="form-control" name="summary" id="exampleFormControlTextarea1" rows="3" placeholder="Tell us about yourself"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell us about yourself"></textarea>
                     </div>
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="profile" id="profile-upload">
+                            <input type="file" class="custom-file-input" id="profile-upload">
                             <label class="custom-file-label" for="inputGroupFile01">Upload your profile picture</label>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                     </div>
                     <!-- <button class="btn btn-primary btn-file" name="submit" href="#profile" aria-controls="profile"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     <!-- <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</a> -->
-                    <button class="btn btn-primary btn-file" id="profile-section-btn" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                    <button class="btn btn-primary btn-file" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                     </form>
                 </div>
             </div>
@@ -111,78 +111,74 @@
             <i class="fa fa-graduation-cap" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
             <h6 style="text-align: center; color: #D64933">My Education Background</h6>
             <form method="POST" action="create-resume.php" id="create-resume">
-                <div id="addEducationSection">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col col-sm-4">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Institution</label>
-                                    <input type="text" class="form-control" name="institution" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which institution do/did you study?">
-                                </div>
-                            </div>
-                            <div class="col col-sm-4">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Area of study</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="What do you study?">
-                                </div>
-                            </div>
-                            <div class="col col-sm-4">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Your highest education level</label>
-                                    <select class="custom-select">
-                                        <option value="Some High School">Some High School</option>
-                                        <option value="High School Diploma">High School Diploma</option>
-                                        <option value="Some College">Some College</option>
-                                        <option value="Associate Degree">Associate Degree</option>
-                                        <option value="Bachelor's Degree">Bachelor's Degree</option>
-                                        <option value="Master's Degree or Higher">Master's Degree or Higher</option>
-                                    </select>
-                                </div>
-                            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col col-sm-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Institution</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which institution do/did you study?">
                         </div>
-                        <div class="row">
-                            <div class="col col-sm-3">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Country</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which country do you study?">
-                                </div>
-                            </div>
-                            <div class="col col-sm-3">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">City</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Which city do you study?">
-                                </div>
-                            </div>
-                            <div class="col col-sm-3">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Start Date</label>
-                                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="The starting date of your study">
-                                </div>
-                            </div>
-                            <div class="col col-sm-3">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">End Date</label>
-                                    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="The ending date of your study">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Present</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-sm-3">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">GPA</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your GPA">
-                            </div>
-                            </div>
+                    </div>
+                    <div class="col col-sm-4">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Area of study</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="What do you study?">
                         </div>
-                        
+                    </div>
+                    <div class="col col-sm-4">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Your highest education level</label>
+                            <select class="custom-select">
+                                <option value="Some High School">Some High School</option>
+                                <option value="High School Diploma">High School Diploma</option>
+                                <option value="Some College">Some College</option>
+                                <option value="Associate Degree">Associate Degree</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree or Higher">Master's Degree or Higher</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                    <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button>
-                    <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
-                    <!-- <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button> -->
-            </form>
+                <div class="row">
+                    <div class="col col-sm-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Country</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which country do you study?">
+                        </div>
+                    </div>
+                    <div class="col col-sm-3">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">City</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Which city do you study?">
+                        </div>
+                    </div>
+                    <div class="col col-sm-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Start Date</label>
+                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="The starting date of your study">
+                        </div>
+                    </div>
+                    <div class="col col-sm-3">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">End Date</label>
+                            <input type="date" class="form-control" id="exampleInputPassword1" placeholder="The ending date of your study">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Present</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">GPA</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your GPA">
+                    </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-file"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button>
+                <button class="btn btn-primary btn-file" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                </form>
+            </div>
             </div>
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
