@@ -1,18 +1,30 @@
 <?php require("components/header.php"); ?>
 <body>
 <?php require("navbar.php"); ?>
+<?php require('config/db.php'); ?>
 
 <div class="card card-collection">
   <div class="card-header">
     <h5>My Resume Collection</h5>
   </div>
   <div class="card-body">
-    
+    <div class="resume-list" style="padding: 20px">
+      <?php 
+        $sql = "SELECT * FROM resume";
+        $result = mysqli_query($conn, $sql);
+
+        $rowcount = mysqli_num_rows($result);
+        if($rowcount == 0){
+      ?>
+        <p style="text-align: center">No resumes created yet.</p>
+      <?php 
+        }
+      ?>
+    </div>
     <hr/>
     <div class="card-subsection">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Create</a>
+      <h5 class="card-title">Create your resume here</h5>
+      <a href="template.php" class="btn btn-primary btn-create">Create</a>
     </div>
   </div>
 </div>

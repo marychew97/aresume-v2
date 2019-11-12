@@ -44,6 +44,11 @@
     margin-bottom:20px; 
 }
 
+.btn-create{
+    background-color: #2B303A;
+    border: none;
+}
+
 .btn-file{
     background-color: #2B303A;
     border: none;
@@ -87,7 +92,7 @@
     box-shadow: 2px 2px 5px #2B303A;
 } */
 
-.btn-file:hover{
+.btn-file:hover, .btn-create:hover{
     background: #2B303A;
 }
 
