@@ -6,7 +6,7 @@
     $server = 'localhost';
     $host = 'root';
     $password = '';
-    $database = 'aresume';
+    $database = 'aresume-fyp';
 
     $conn = mysqli_connect($server, $host, $password, $database);
 

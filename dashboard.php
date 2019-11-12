@@ -2,7 +2,6 @@
 <body>
 <?php require("navbar.php"); ?>
 <?php require('config/db.php'); ?>
-
 <div class="card card-collection">
   <div class="card-header">
     <h5>My Resume Collection</h5>
@@ -10,7 +9,8 @@
   <div class="card-body">
     <div class="resume-list" style="padding: 20px">
       <?php 
-        $sql = "SELECT * FROM resume";
+        $id = $_SESSION['id'];
+        $sql = "SELECT * FROM resume WHERE user_id = $id";
         $result = mysqli_query($conn, $sql);
 
         $rowcount = mysqli_num_rows($result);

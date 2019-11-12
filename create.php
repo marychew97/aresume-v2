@@ -4,9 +4,10 @@
 <?php require("config/db.php"); ?>
 
 <div class="container-fluid form-content">
-    <div class="progress" style="height: 30px">
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>
-        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div>
+    <h6>My Resume Completion</h6>
+    <div class="progress" style="height: 30px" id="progress-bar">
+        <!-- <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div> -->
     </div>
     <div class="tab-container">
         <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
@@ -25,7 +26,7 @@
             <div style="margin-top: 50px">
                 <i class="fa fa-user" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
                 <h6 style="text-align: center; color: #D64933">My Personal Information</h6>
-                <form method="POST" action="create-resume.php" id="create-resume">
+                <form method="POST" action="create-resume.php" id="create-profile">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col col-sm-6">
@@ -37,7 +38,7 @@
                         <div class="col col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Current Job</label>
-                                <input type="text" class="form-control" name="job" id="exampleInputPassword1" placeholder="What do you do?">
+                                <input type="text" class="form-control" name="job" id="job" placeholder="What do you do?">
                             </div>
                         </div>
                     </div>
@@ -45,23 +46,23 @@
                         <div class="col col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email">
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Your email">
                             </div>
                         </div>
                         <div class="col col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Phone</label>
-                                <input type="text" class="form-control" name="phone" id="exampleInputPassword1" placeholder="Your contact number">
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Your contact number">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Location</label>
-                        <input type="text" class="form-control" name="location" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Where do you live?">
+                        <input type="text" class="form-control" name="location" id="location" aria-describedby="emailHelp" placeholder="Where do you live?">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Summary</label>
-                        <textarea class="form-control" name="summary" id="exampleFormControlTextarea1" rows="3" placeholder="Tell us about yourself"></textarea>
+                        <textarea class="form-control" name="summary" id="summary" rows="3" placeholder="Tell us about yourself"></textarea>
                     </div>
                     <div class="input-group mb-3">
                         <div class="custom-file">
@@ -76,25 +77,25 @@
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Website</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your website link">
+                                    <input type="text" class="form-control" name="website" id="website" aria-describedby="emailHelp" placeholder="Your website link">
                                 </div>
                             </div>
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;&nbsp;LinkedIn</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your LinkedIn profile link">
+                                    <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="Your LinkedIn profile link">
                                 </div>
                             </div>
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1"><i class="fa fa-github" aria-hidden="true"></i>&nbsp;&nbsp;GitHub</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your GitHub profile link">
+                                    <input type="text" class="form-control" name="github" id="github" placeholder="Your GitHub profile link">
                                 </div>
                             </div>
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1"><i class="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;&nbsp;Facebook</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your Facebook profile link">
+                                    <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Your Facebook profile link">
                                 </div>
                             </div>
                         </div>
@@ -110,26 +111,26 @@
         <div style="margin-top: 50px">
             <i class="fa fa-graduation-cap" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
             <h6 style="text-align: center; color: #D64933">My Education Background</h6>
-            <form method="POST" action="create-resume.php" id="create-resume">
+            <form method="POST" action="create-resume.php" id="create-education">
                 <div id="addEducationSection">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col col-sm-4">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Institution</label>
-                                    <input type="text" class="form-control" name="institution" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which institution do/did you study?">
+                                    <input type="text" class="form-control" name="institution" id="institution" aria-describedby="emailHelp" placeholder="Which institution do/did you study?">
                                 </div>
                             </div>
                             <div class="col col-sm-4">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Area of study</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="What do you study?">
+                                    <input type="text" class="form-control" name="studyarea" id="studyarea" placeholder="What do you study?">
                                 </div>
                             </div>
                             <div class="col col-sm-4">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Your highest education level</label>
-                                    <select class="custom-select">
+                                    <select class="custom-select" name="edulevel" id="edulevel">
                                         <option value="Some High School">Some High School</option>
                                         <option value="High School Diploma">High School Diploma</option>
                                         <option value="Some College">Some College</option>
@@ -144,25 +145,25 @@
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Country</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which country do you study?">
+                                    <input type="text" class="form-control" name="country" id="country" aria-describedby="emailHelp" placeholder="Which country do you study?">
                                 </div>
                             </div>
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">City</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Which city do you study?">
+                                    <input type="text" class="form-control" name="city" id="city" placeholder="Which city do you study?">
                                 </div>
                             </div>
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Start Date</label>
-                                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="The starting date of your study">
+                                    <input type="date" class="form-control" name="startdate" id="startdate" aria-describedby="emailHelp" placeholder="The starting date of your study">
                                 </div>
                             </div>
                             <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">End Date</label>
-                                    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="The ending date of your study">
+                                    <input type="date" class="form-control" name="enddate" id="enddate" placeholder="The ending date of your study">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Present</label>
@@ -172,7 +173,7 @@
                             <div class="col col-sm-3">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">GPA</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your GPA">
+                                <input type="text" class="form-control" name="gpa" id="gpa" aria-describedby="emailHelp" placeholder="Your GPA">
                             </div>
                             </div>
                         </div>

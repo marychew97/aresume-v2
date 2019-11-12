@@ -62,11 +62,59 @@
         });
     });
 
+    $('#template-form').on('submit', function(e){
+        e.preventDefault();
+        var formData = $('#template-form').serialize();
+        $.ajax({
+            type: 'post',
+            url: 'template-submit.php',
+            data: formData,
+            success: function (data) {
+                window.location.href="create.php";
+            }
+        })
+    })
+
+    $('#profile-upload').on('change', function(){
+        var filename = $(this).val();
+        $(this).next('.custom-file-label').html(filename);
+    });
+
     $('#profile-section-btn').on('click', function(e){
         e.preventDefault();
         var name = $('#name').val();
         var job = $('#job').val();
-        var formData = $('#create-resume').serialize();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var location = $('#location').val();
+        var summary = $('#summary').val();
+        var website = $('#website').val();
+        var linkedin = $('#linkedin').val();
+        var github = $('#github').val();
+        var facebook = $('#facebook').val();
+        var formData = $('#create-profile').serialize();
+        $.ajax({
+            type: 'post',
+            url: 'create-resume.php',
+            data: formData,
+            success: function (data) {
+                console.log(data);
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
+    })
+
+    $('#resume-submit').on('click', function(e){
+        e.preventDefault();
+        var institution = $('#institution').val();
+        var studyarea = $('#studyarea').val();
+        var edulevel = $('#edulevel').val();
+        var country = $('#country').val();
+        var city = $('#city').val();
+        var startdate = $('#startdate').val();
+        var enddate = $('#enddate').val();
+        var gpa = $('#gpa').val();
+        var formData = $('#create-education').serialize();
         $.ajax({
             type: 'post',
             url: 'create-resume.php',
@@ -75,11 +123,6 @@
                 console.log(data)
             }
         })
-    })
-
-    $('#create-resume').on('submit', function(e){
-        e.preventDefault();
-        console.log(e);
     });
 
     $('#addEducation').on('click', function(e){
@@ -103,11 +146,6 @@
     //     alert('hey');
     //     // $('#addVideos').append('<div class="custom-file"><input type="file" class="custom-file-input" id="video-input" aria-describedby="inputGroupFileAddon01"><label class="custom-file-label" for="inputGroupFile01">Choose file</label></div>');
     // });
-
-    $('#profile-upload').on('change', function(){
-        var filename = $(this).val();
-        $(this).next('.custom-file-label').html(filename);
-    });
 
     // $('#photo-input').on('change', function(){
     //     $('#image-upload-form').submit());
