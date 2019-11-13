@@ -18,6 +18,31 @@
       ?>
         <p style="text-align: center">No resumes created yet.</p>
       <?php 
+        } else{
+          ?>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Resume</th>
+                <th scope="col">Scanner URL</th>
+                <th scope="col">View</th>
+              </tr>
+            </thead>
+            <tbody>
+          <?php
+          while($row = mysqli_fetch_assoc($result)){
+            ?>
+              <tr>
+                <th scope="row">Resume <?php echo $row['resume_id']; ?></th>
+                <td><a href="scanner.php?id=<?php echo $row['resume_id'];?>">Resume <?php echo $row['resume_id']; ?> scanner URL<a></td>
+                <td><a href="generate.php?id=<?php echo $row['resume_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View<a></td>
+              </tr>
+            <?php
+          }
+          ?>
+          </tbody>
+          </table>
+          <?php
         }
       ?>
     </div>
