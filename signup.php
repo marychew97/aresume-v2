@@ -7,8 +7,8 @@
         $password = $_POST['password'];
         $confirm = $_POST['confirm'];
 
-        $sql = "INSERT INTO user (email, password, username)
-                VALUES ('$email', '$password', '$username')";
+        $sql = "INSERT INTO user (username, email, password)
+                VALUES ('$username', '$email', '$password')";
         $result = mysqli_query($conn, $sql);
 
         if($result){

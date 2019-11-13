@@ -1,20 +1,22 @@
 <?php 
     include "config/db.php";
+    session_start();
 
     if(isset($_POST)){
         $name       = $_FILES['file']['name'];  
         $temp_name  = $_FILES['file']['tmp_name'];  
+        $user_id = $_SESSION['id'];
         if(isset($name)){
             if(!empty($name)){      
               $folder = "uploads/images/";
               move_uploaded_file($temp_name, $folder.$name);
 
-              $sql = "INSERT INTO images (image)
-                      VALUE ('$name')";
+              $sql = "INSERT INTO images (image, user_id)
+                      VALUE ('$name', $user_id)";
 
               $result = mysqli_query($conn, $sql);
 
-              $sql2 = "SELECT * FROM images";
+              $sql2 = "SELECT * FROM images WHERE user_id = $user_id";
               $result2 = mysqli_query($conn, $sql2);
               $json_array = array();
               while($row = mysqli_fetch_assoc($result2)){

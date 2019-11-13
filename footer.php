@@ -65,6 +65,7 @@
     $('#template-form').on('submit', function(e){
         e.preventDefault();
         var formData = $('#template-form').serialize();
+        console.log(formData);
         $.ajax({
             type: 'post',
             url: 'template-submit.php',
@@ -80,6 +81,24 @@
         $(this).next('.custom-file-label').html(filename);
     });
 
+    // $('#profile-upload-form').on('submit', function(e){
+    //     var formData = new FormData(this);
+    //     console.log(formData)
+    //     e.preventDefault();
+    //     $.ajax({
+    //         type: 'post',
+    //         url: 'image-upload.php',
+    //         data: formData,
+    //         dataType: "json",
+    //         contentType: false,
+    //         processData: false,
+    //         success: function (data) {
+    //             // console.log(data[0].image);
+    //             $('#profile-gallery').append("<img src='uploads/images/"+data.image+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
+    //         }
+    //     })
+    // });
+
     $('#profile-section-btn').on('click', function(e){
         e.preventDefault();
         var name = $('#name').val();
@@ -92,19 +111,21 @@
         var linkedin = $('#linkedin').val();
         var github = $('#github').val();
         var facebook = $('#facebook').val();
+        // var profile = $('#profile-upload').val();
         var formData = $('#create-profile').serialize();
+        // var formData = new FormData($('#create-profile')[0]);
         $.ajax({
             type: 'post',
             url: 'create-resume.php',
             data: formData,
             success: function (data) {
                 console.log(data);
-                $('#progress-bar').append('<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 80%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
             }
         })
     })
 
-    $('#resume-submit').on('click', function(e){
+    $('#create-education').on('click', function(e){
         e.preventDefault();
         var institution = $('#institution').val();
         var studyarea = $('#studyarea').val();
@@ -117,7 +138,7 @@
         var formData = $('#create-education').serialize();
         $.ajax({
             type: 'post',
-            url: 'create-resume.php',
+            url: 'create-institution.php',
             data: formData,
             success: function (data) {
                 console.log(data)
@@ -147,9 +168,9 @@
     //     // $('#addVideos').append('<div class="custom-file"><input type="file" class="custom-file-input" id="video-input" aria-describedby="inputGroupFileAddon01"><label class="custom-file-label" for="inputGroupFile01">Choose file</label></div>');
     // });
 
-    // $('#photo-input').on('change', function(){
-    //     $('#image-upload-form').submit());
-    // });
+    $('#photo-input').on('change', function(){
+        $('#image-upload-form').submit();
+    });
     
     $('#image-upload-form').on('submit', function(e){
         var formData = new FormData(this);
@@ -162,8 +183,53 @@
             contentType: false,
             processData: false,
             success: function (data) {
+
                 // console.log(data[0].image);
-                $('#addPhotos').append("<img src='uploads/images/"+data.image+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
+                 $('#addPhotos').append("<img src='uploads/images/"+data.image+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
+            }
+        })
+    });
+
+    $('#document-input').on('change', function(){
+        $('#document-upload-form').submit();
+    });
+    
+    $('#document-upload-form').on('submit', function(e){
+        var formData = new FormData(this);
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'document-upload.php',
+            data: formData,
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log('success');
+                // console.log(data[0].image);
+                $('#addDocuments').append("<li>"+data.document+"</li>");
+            }
+        })
+    });
+
+    $('#video-input').on('change', function(){
+        $('#video-upload-form').submit();
+    });
+    
+    $('#video-upload-form').on('submit', function(e){
+        var formData = new FormData(this);
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'video-upload-test.php',
+            data: formData,
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                // console.log(data[0].image);
+                $('#addVideos').append("<video width='300' controls style='display: block; margin: auto;'><source src=uploads/videos/"+data.video+" type='video/mp4'></video>");
+                //  $('#addVideos').append("<img src='uploads/videos/"+data.video+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
             }
         })
     });
@@ -178,12 +244,9 @@
             type: 'post',
             url: 'delete-image.php',
             data: formData,
-            dataType: "json",
-            contentType: false,
-            processData: false,
             success: function (data) {
                 // console.log(data[0].image);
-                alert(data);
+                console.log(data);
             }
         })
     });

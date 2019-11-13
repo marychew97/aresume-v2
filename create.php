@@ -10,7 +10,7 @@
         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div> -->
     </div>
     <div class="tab-container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
             </li>
@@ -19,6 +19,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -66,7 +69,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="profile" id="profile-upload">
+                            <input type="file" class="custom-file-input" name="file" id="profile-upload">
                             <label class="custom-file-label" for="inputGroupFile01">Upload your profile picture</label>
                         </div>
                     </div>
@@ -108,11 +111,51 @@
             </div>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div style="margin-top: 50px">
+            <div style="margin-top: 50px">
+                <i class="fa fa-picture-o" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
+                <h6 style="text-align: center; color: #D64933">Augmented Photos</h6>
+                
+                <form method="POST" action="image-upload.php" enctype="multipart/form-data" id="image-upload-form">
+                    <h4 style="text-align:center">Upload your photos</h4>
+                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="photo-input"/></span>
+                
+                <!-- <div id="addPhoto"></div> -->
+                <div id="gallery" class="container">
+                    <div class="row" style="padding-top:10px">
+                        
+                        <?php 
+                            $user_id = $_SESSION['id'];
+                            $sql = "SELECT * FROM images WHERE user_id = $user_id";
+                            $result = mysqli_query($conn, $sql);
+
+                            $rowcount = mysqli_num_rows($result);
+                            if($rowcount > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $id = $row['id'];
+                                    $image = $row['image'];
+                        ?>
+                        <div class="col col-sm-3" id="addPhotos">
+                            <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
+                            <br/>
+                            <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
+                        </div>
+                        <?php
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+
+                </form>
+                <button class="btn btn-primary btn-file" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+            </div>
+        </div>
+        
+        <!-- <div style="margin-top: 50px">
             <i class="fa fa-graduation-cap" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
-            <h6 style="text-align: center; color: #D64933">My Education Background</h6>
-            <form method="POST" action="create-resume.php" id="create-education">
-                <div id="addEducationSection">
+            <h6 style="text-align: center; color: #D64933">My Education Background</h6> -->
+            <!-- <form method="POST" action="create-institution.php" id="create-education"> -->
+                <!-- <div id="addEducationSection">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col col-sm-4">
@@ -181,12 +224,94 @@
                     </div>
                 </div>
                     <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button>
-                    <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                    <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     <!-- <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button> -->
-            </form>
+            <!-- </form>
+            </div>
+        </div> -->
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div style="margin-top: 50px">
+                <i class="fa fa-file" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
+                <h6 style="text-align: center; color: #D64933">Augmented Documents</h6>
+                
+                <form method="POST" action="document-upload.php" enctype="multipart/form-data" id="document-upload-form">
+                    <h4 style="text-align:center">Upload your documents</h4>
+                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="document-input"/></span>
+                
+                <!-- <div id="addPhoto"></div> -->
+                <div id="document-gallery" class="container">
+                    <div class="row" style="padding-top:10px">
+                        <ul>
+                        <?php 
+                            $user_id = $_SESSION['id'];
+                            $sql = "SELECT * FROM documents WHERE user_id = $user_id";
+                            $result = mysqli_query($conn, $sql);
+
+                            $rowcount = mysqli_num_rows($result);
+                            if($rowcount > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $id = $row['id'];
+                                    $document = $row['document'];
+                        ?>
+                        <div id="addDocuments">
+                            <li><?php echo $document; ?></li>
+                            <!-- <img src="uploads/images/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
+                            <br/>
+                            <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
+                        </div>
+                        <?php
+                                }
+                            }
+                        ?>
+                        </ul>
+                    </div>
+                </div>
+
+                </form>
+                <button class="btn btn-primary btn-file" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
             </div>
         </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+        <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+        <div style="margin-top: 50px">
+                <i class="fa fa-video-camera" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
+                <h6 style="text-align: center; color: #D64933">Augmented Videos</h6>
+                
+                <form method="POST" action="video-upload-test.php" enctype="multipart/form-data" id="video-upload-form">
+                    <h4 style="text-align:center">Upload your videos</h4>
+                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="video-input"/></span>
+                
+                <!-- <div id="addPhoto"></div> -->
+                <div id="gallery-video" class="container">
+                    <div class="row" style="padding-top:10px">
+                        
+                        <?php 
+                            $user_id = $_SESSION['id'];
+                            $sql = "SELECT * FROM videos WHERE user_id = $user_id";
+                            $result = mysqli_query($conn, $sql);
+
+                            $rowcount = mysqli_num_rows($result);
+                            if($rowcount > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $id = $row['id'];
+                                    $video = $row['video'];
+                        ?>
+                        <div class="col col-sm-3" id="addVideos">
+                            <!-- <img src="uploads/videos/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
+                            <video width="300" controls style="margin-left: 10px; display: block; margin: auto;"><source src="uploads/videos/<?php echo $video; ?>" type="video/mp4"></video>
+                            <br/>
+                            <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
+                        </div>
+                        <?php
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+
+                </form>
+                <a class="btn btn-primary btn-file" href="dashboard.php"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Finish</a>
+            </div>
+        </div>
         </div>
     </div>
 </div>
@@ -256,44 +381,44 @@
                         <img src="images/photo.png" alt="photo-image"/>
                     </div> -->
                     <!-- <div class="col md-8 right-container"> -->
-                    <h4 style="margin-top: 50px; text-align:center">Upload your photos</h4>
+                    <!-- <h4 style="margin-top: 50px; text-align:center">Upload your photos</h4>
                     <form method="POST" action="image-upload.php" enctype="multipart/form-data" id="image-upload-form">
                     <span class="btn btn-primary btn-file"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="photo-input"/></span>
-                        <!-- <div id="addPhotos">
-                            <input type="file" name="files[]" id="files" multiple /> -->
+                        <div id="addPhotos"> -->
+                            <!-- <input type="file" name="files[]" id="files" multiple /> -->
                             <!-- <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="file[]" id="photo-input" aria-describedby="inputGroupFileAddon01" multiple>
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div> -->
-                        <!-- </div> -->
+                        <!-- </div>
                         <div id="gallery" class="container">
                             <div class="row" style="padding-top:10px">
-                                
+                                 -->
                                 <?php 
-                                    $sql = "SELECT * FROM images";
-                                    $result = mysqli_query($conn, $sql);
+                                    // $sql = "SELECT * FROM images";
+                                    // $result = mysqli_query($conn, $sql);
 
-                                    $rowcount = mysqli_num_rows($result);
-                                    if($rowcount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){
-                                            $id = $row['id'];
-                                            $image = $row['image'];
+                                    // $rowcount = mysqli_num_rows($result);
+                                    // if($rowcount > 0){
+                                    //     while($row = mysqli_fetch_assoc($result)){
+                                    //         $id = $row['id'];
+                                    //         $image = $row['image'];
                                 ?>
-                                <div class="col col-sm-3" id="addPhotos">
-                                    <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
+                                <!-- <div class="col col-sm-3" id="addPhotos">
+                                    <img src="uploads/images/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
                                     <br/>
-                                    <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
-                                </div>
+                                    <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button>
+                                </div> -->
                                 <?php
-                                        }
-                                    }
+                                    //     }
+                                    // }
                                 ?>
-                            </div>
-                        </div>
+                            <!-- </div>
+                        </div> -->
                         
-                        <!-- <button class="btn btn-primary btn-add" id="addImgbutton" style="color: #2B303A">Add</button> -->
-                        <!-- <button class="btn btn-primary btn-file" type="submit" name="submit"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Upload</button> -->
-                    </form>
+                        <!-- <button class="btn btn-primary btn-add" id="addImgbutton" style="color: #2B303A">Add</button>
+                        <button class="btn btn-primary btn-file" type="submit" name="submit"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Upload</button> -->
+                    <!-- </form> -->
                     <!-- </div>
                 </div> -->
             </div>

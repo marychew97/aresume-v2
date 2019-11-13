@@ -8,7 +8,6 @@
 
         $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
         $result = mysqli_query($conn, $sql);
-
         $row = mysqli_fetch_assoc($result);
         if($row['password'] === $password && $row['email'] === $email){
             echo "Signed in successfully! Redirecting to your dashboard...";

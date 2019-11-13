@@ -1,4 +1,13 @@
-<form action="upload.php" method="post" enctype="multipart/form-data">
-<input type="file" name="file" id="file"><br><br>
-<input type="submit" value="submit" name="submit">
-</form>
+<!doctype html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <form method="post" action="video-upload-test.php" enctype='multipart/form-data'>
+      <input type='file' name='file' />
+      <input type='submit' value='Upload' name='upload'>
+    </form>
+
+  </body>
+</html>

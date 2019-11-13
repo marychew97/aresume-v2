@@ -1,53 +1,72 @@
 <?php 
     require('config/db.php');
+    session_start();
 
-    $name = $_POST['name'];
-    $job = $_POST['job'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $location = $_POST['location'];
-    $summary = $_POST['summary'];
-    $website = $_POST['website'];
-    $linkedin = $_POST['linkedin'];
-    $github = $_POST['github'];
-    $facebook = $_POST['facebook'];
+    // if(isset($_POST)){
+        $name = $_POST['name'];
+        $job = $_POST['job'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $location = $_POST['location'];
+        $summary = $_POST['summary'];
+        $website = $_POST['website'];
+        $linkedin = $_POST['linkedin'];
+        $github = $_POST['github'];
+        $facebook = $_POST['facebook'];
+    
+        // $profile_name = $_FILES['file']['name'];  
+        // $temp_name  = $_FILES['file']['tmp_name']; 
+    
+        $user_id = $_SESSION['id'];
+        
+        // if(isset($profile_name)){
+        //     if(!empty($profile_name)){
+        //         $folder = "uploads/images/";
+        //         move_uploaded_file($temp_name, $folder.$name);
 
-    $user_id = $_GET['id'];
+        //         $sql = "INSERT INTO profile_temp (user_id, name, job, email, phone, location, summary, website, linkedin, github, facebook, profile_img)
+        //                 VALUES ($user_id, '$name', '$job', '$email', '$phone', '$location', '$summary', '$website', '$linkedin', '$github', '$facebook', '$profile_name')";
+        //         $result = mysqli_query($conn, $sql);
 
-    $sql = "INSERT INTO resume ('user_id', 'resume_name', 'name', 'email', 'location', 'linkedin', 'github', 'facebook', 'phone', 'summary', 'website', 'job', 'profile_image', 'award_id', 'education_id', 'interest_id', 'language_id', 'location_id', 'profile_id', 'publication_id', 'reference_id', 'work_id', 'skill_id', 'volunteer_id', 'resume_link', 'documents', 'videos', 'images')
-            VALUES ($user_id, , '$name', '$email', '$location', '$linkedin', '$github', '$facebook', '$phone', '$summary', '$website', '$job', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')";
-    $result = mysqli_query($conn, $sql);
-    echo $sql;
-    echo $result;
-    if($result){
-        echo "submitted";
-    } else{
-        echo "error";
-    }
-    // $institution = $_POST['institution'];
-    // $studyarea = $_POST['studyarea'];
-    // $edulevel = $_POST['edulevel'];
-    // $country = $_POST['country'];
-    // $city = $_POST['city'];
-    // $startdate = $_POST['startdate'];
-    // $enddate = $_POST['enddate'];
-    // $gpa = $_POST['gpa'];
-    echo $name;
-    echo $job;
-    echo $email;
-    echo $phone;
-    echo $location;
-    echo $summary;
-    echo $website;
-    echo $linkedin;
-    echo $github;
-    echo $facebook;
-    // echo $institution;
-    // echo $studyarea;
-    // echo $edulevel;
-    // echo $country;
-    // echo $city;
-    // echo $startdate;
-    // echo $enddate;
-    // echo $gpa;
+        //         $sql2 = "INSERT INTO resume (user_id, template, name, job, email, phone, location, summary, website, linkedin, github, facebook, profile_img)
+        //                 SELECT tt.user_id, template, pt.name, pt.job, pt.email, pt.phone, pt.location, pt.summary, pt.website, pt.linkedin, pt.github, pt.facebook, pt.profile_img
+        //                 FROM template_temp AS tt 
+        //                 INNER JOIN profile_temp AS pt ON pt.user_id = tt.user_id";
+        //         $result2 = mysqli_query($conn, $sql2);
+        //         if($result2){
+        //             echo "submitted test";
+        //         }else{
+        //             echo mysqli_error();
+        //         }
+        //     }
+        // } else{
+            $sql = "INSERT INTO profile_temp (user_id, name, job, email, phone, location, summary, website, linkedin, github, facebook)
+            VALUES ($user_id, '$name', '$job', '$email', '$phone', '$location', '$summary', '$website', '$linkedin', '$github', '$facebook')";
+            $result = mysqli_query($conn, $sql);
+
+            $sql2 = "INSERT INTO resume (user_id, template, name, job, email, phone, location, summary, website, linkedin, github, facebook)
+                 SELECT tt.user_id, template, pt.name, pt.job, pt.email, pt.phone, pt.location, pt.summary, pt.website, pt.linkedin, pt.github, pt.facebook
+                 FROM template_temp AS tt 
+                 INNER JOIN profile_temp AS pt ON pt.user_id = tt.user_id";
+            $result2 = mysqli_query($conn, $sql2);
+            if($result2){
+                echo "submitted test";
+            }else{
+                echo mysqli_error();
+            }
+        // }
+        
+    
+        // $sql = "INSERT INTO resume_test (name, job, email, phone, location, summary, website, linkedin, github, facebook)
+        //         VALUES ('$name', '$job', '$email', '$phone', '$location', '$summary', '$website', '$linkedin', '$github', '$facebook')";
+        
+        // if($result){
+        //     echo "submitted";
+        // } else{
+        //     echo mysqli_error();
+        // }
+    
+        
+    // }
+    
 ?>
