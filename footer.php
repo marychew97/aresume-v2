@@ -116,7 +116,7 @@
         // var formData = new FormData($('#create-profile')[0]);
         $.ajax({
             type: 'post',
-            url: 'create-resume.php',
+            url: 'create-profile.php',
             data: formData,
             success: function (data) {
                 console.log(data);
@@ -125,7 +125,7 @@
         })
     })
 
-    $('#create-education').on('click', function(e){
+    $('#education-section-btn').on('click', function(e){
         e.preventDefault();
         var institution = $('#institution').val();
         var studyarea = $('#studyarea').val();
@@ -135,7 +135,7 @@
         var startdate = $('#startdate').val();
         var enddate = $('#enddate').val();
         var gpa = $('#gpa').val();
-        var formData = $('#create-education').serialize();
+        var formData = $('#create-institution').serialize();
         $.ajax({
             type: 'post',
             url: 'create-institution.php',

@@ -44,16 +44,16 @@
             VALUES ($user_id, '$name', '$job', '$email', '$phone', '$location', '$summary', '$website', '$linkedin', '$github', '$facebook')";
             $result = mysqli_query($conn, $sql);
 
-            $sql2 = "INSERT INTO resume (user_id, template, name, job, email, phone, location, summary, website, linkedin, github, facebook)
-                 SELECT tt.user_id, template, pt.name, pt.job, pt.email, pt.phone, pt.location, pt.summary, pt.website, pt.linkedin, pt.github, pt.facebook
-                 FROM template_temp AS tt 
-                 INNER JOIN profile_temp AS pt ON pt.user_id = tt.user_id";
-            $result2 = mysqli_query($conn, $sql2);
-            if($result2){
-                echo "submitted test";
-            }else{
-                echo mysqli_error();
-            }
+            // $sql2 = "INSERT INTO resume (user_id, template, name, job, email, phone, location, summary, website, linkedin, github, facebook)
+            //      SELECT tt.user_id, template, pt.name, pt.job, pt.email, pt.phone, pt.location, pt.summary, pt.website, pt.linkedin, pt.github, pt.facebook
+            //      FROM template_temp AS tt 
+            //      INNER JOIN profile_temp AS pt ON pt.user_id = tt.user_id";
+            // $result2 = mysqli_query($conn, $sql2);
+            // if($result2){
+            //     echo "submitted test";
+            // }else{
+            //     echo mysqli_error();
+            // }
         // }
         
     

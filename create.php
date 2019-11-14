@@ -15,6 +15,9 @@
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
             </li>
             <li class="nav-item">
@@ -29,7 +32,7 @@
             <div style="margin-top: 50px">
                 <i class="fa fa-user" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
                 <h6 style="text-align: center; color: #D64933">My Personal Information</h6>
-                <form method="POST" action="create-resume.php" id="create-profile">
+                <form method="POST" action="create-profile.php" id="create-profile">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col col-sm-6">
@@ -105,57 +108,17 @@
                     </div>
                     <!-- <button class="btn btn-primary btn-file" name="submit" href="#profile" aria-controls="profile"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     <!-- <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</a> -->
-                    <button class="btn btn-primary btn-file" id="profile-section-btn" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                    <button class="btn btn-primary btn-file" id="profile-section-btn" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
             <div style="margin-top: 50px">
-                <i class="fa fa-picture-o" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
-                <h6 style="text-align: center; color: #D64933">Augmented Photos</h6>
-                
-                <form method="POST" action="image-upload.php" enctype="multipart/form-data" id="image-upload-form">
-                    <h4 style="text-align:center">Upload your photos</h4>
-                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="photo-input"/></span>
-                
-                <!-- <div id="addPhoto"></div> -->
-                <div id="gallery" class="container">
-                    <div class="row" style="padding-top:10px">
-                        
-                        <?php 
-                            $user_id = $_SESSION['id'];
-                            $sql = "SELECT * FROM images WHERE user_id = $user_id";
-                            $result = mysqli_query($conn, $sql);
-
-                            $rowcount = mysqli_num_rows($result);
-                            if($rowcount > 0){
-                                while($row = mysqli_fetch_assoc($result)){
-                                    $id = $row['id'];
-                                    $image = $row['image'];
-                        ?>
-                        <div class="col col-sm-3" id="addPhotos">
-                            <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
-                            <br/>
-                            <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
-                        </div>
-                        <?php
-                                }
-                            }
-                        ?>
-                    </div>
-                </div>
-
-                </form>
-                <button class="btn btn-primary btn-file" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
-            </div>
-        </div>
-        
-        <!-- <div style="margin-top: 50px">
             <i class="fa fa-graduation-cap" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
-            <h6 style="text-align: center; color: #D64933">My Education Background</h6> -->
-            <!-- <form method="POST" action="create-institution.php" id="create-education"> -->
-                <!-- <div id="addEducationSection">
+            <h6 style="text-align: center; color: #D64933">My Education Background</h6> 
+            <form method="POST" action="create-institution.php" id="create-institution"> 
+                <div id="addEducationSection">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col col-sm-4">
@@ -223,12 +186,55 @@
                         
                     </div>
                 </div>
-                    <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button>
-                    <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
+                    <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->
+                    <!-- <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     <!-- <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button> -->
-            <!-- </form>
+                    <button class="btn btn-primary btn-file" id="education-section-btn" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+             </form>
             </div>
-        </div> -->
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div style="margin-top: 50px">
+                <i class="fa fa-picture-o" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
+                <h6 style="text-align: center; color: #D64933">Augmented Photos</h6>
+                
+                <form method="POST" action="image-upload.php" enctype="multipart/form-data" id="image-upload-form">
+                    <h4 style="text-align:center">Upload your photos</h4>
+                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="photo-input"/></span>
+                
+                <!-- <div id="addPhoto"></div> -->
+                <div id="gallery" class="container">
+                    <div class="row" style="padding-top:10px">
+                        
+                        <?php 
+                            $user_id = $_SESSION['id'];
+                            $sql = "SELECT * FROM images WHERE user_id = $user_id";
+                            $result = mysqli_query($conn, $sql);
+
+                            $rowcount = mysqli_num_rows($result);
+                            if($rowcount > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $id = $row['id'];
+                                    $image = $row['image'];
+                        ?>
+                        <div class="col col-sm-3" id="addPhotos">
+                            <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
+                            <br/>
+                            <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
+                        </div>
+                        <?php
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+
+                </form>
+                <button class="btn btn-primary btn-file" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+            </div>
+        </div>
+        
+        
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <div style="margin-top: 50px">
                 <i class="fa fa-file" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
