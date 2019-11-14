@@ -15,11 +15,13 @@
 
 <?php 
   require('config/db.php');
+  session_start();
 ?>
 
   <body style='margin : 0px; overflow: hidden;'>
   <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
   <?php 
+            $user_id = $_GET['id'];
             $sql = "SELECT * FROM images";
             $result = mysqli_query($conn, $sql);
             $rowcount = mysqli_num_rows($result);
@@ -45,17 +47,18 @@
     <a-scene embedded arjs>
       <a-marker preset="hiro">
           <?php 
-            $sql = "SELECT * FROM images";
+            $sql = "SELECT * FROM videos";
             $result = mysqli_query($conn, $sql);
             $rowcount = mysqli_num_rows($result);
-            if($rowcount > 0){
+            if($rowcount == 1){
               while($rowcount = mysqli_fetch_assoc($result)){
-                $image = $rowcount['image'];
-                echo "<script>console.log('$image')</script>";
+                $video = $rowcount['video'];
+                echo "<script>console.log('$video')</script>";
           ?>
           <!-- <a-box position='0 0.5 0' material='color: yellow;'></a-box> -->
           <!-- <a-plane width="1.0" height="1.0" src="https://www.youtube.com/watch?v=0aj8ajIBAVo&list=RD0aj8ajIBAVo&start_radio=1" rotation="-90 0 0"></a-plane> -->
-          <a-video src="bigfoot.mp4" width="1" height="1" rotation="-90 0 0"></a-video>
+          
+          <a-video autoplay loop="false" src="uploads/videos/<?php echo $video; ?>" width="1" height="1" rotation="-90 0 0"></a-video>
           <?php
             }
           }
