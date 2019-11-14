@@ -7,8 +7,9 @@
     $host = 'kjoiwgdfgwrxbf';
     $password = '3678cd37386aa59354c4478a4ea6d4b4016d16b49d83a6585fa07ec907d19dc5';
     $database = 'd23m1kun1tmsvj';
+    $port = 5432;
 
-    $conn = mysqli_connect($server, $host, $password, $database);
+    $conn = mysqli_connect($server, $host, $password, $database, $port);
 
     if(!$conn){
         die("Connection failed " . mysqli_connect_error());
