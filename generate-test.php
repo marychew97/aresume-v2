@@ -1,0 +1,2 @@
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=scanner-test.php" style="display: inline-block; margin: auto;" alt="" title="" />
+                        <img src="images/hiro-marker.png" style="display: inline-block; margin: auto;float:right" alt="hiro ar marker" width="100px" height="100px"/>
