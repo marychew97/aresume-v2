@@ -120,7 +120,8 @@
             data: formData,
             success: function (data) {
                 console.log(data);
-                $('#progress-bar').append('<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 80%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
             }
         })
     })
@@ -142,6 +143,29 @@
             data: formData,
             success: function (data) {
                 console.log(data)
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Education &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
+    });
+
+    $('#work-section-btn').on('click', function(e){
+        e.preventDefault();
+        var company = $('#company').val();
+        var position = $('#position').val();
+        var country = $('#work_country').val();
+        var city = $('#work_city').val();
+        var startdate = $('#work_startdate').val();
+        var enddate = $('#work_enddate').val();
+        var formData = $('#create-work').serialize();
+        $.ajax({
+            type: 'post',
+            url: 'create-work.php',
+            data: formData,
+            success: function (data) {
+                console.log(data)
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Work Experience &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
             }
         })
     });
@@ -185,9 +209,25 @@
             success: function (data) {
 
                 // console.log(data[0].image);
-                 $('#addPhotos').append("<img src='uploads/images/"+data.image+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
+                
+                $('#addPhotos').append("<img src='uploads/images/"+data.image+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
             }
         })
+    });
+
+    $('#image-upload-btn').on('click', function(e){
+        $('html, body').animate({scrollTop:0}, 'fast');
+        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Images&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+    });
+
+    $('#doc-upload-btn').on('click', function(e){
+        $('html, body').animate({scrollTop:0}, 'fast');
+        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Documents&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+    });
+
+    $('#video-upload-btn').on('click', function(e){
+        $('html, body').animate({scrollTop:0}, 'fast');
+        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Videos&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
     });
 
     $('#document-input').on('change', function(){

@@ -10,24 +10,30 @@
         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div> -->
     </div>
     <div class="tab-container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="work-tab" data-toggle="tab" href="#work" role="tab" aria-controls="work" aria-selected="false">Work</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="image-tab" data-toggle="tab" href="#image" role="tab" aria-controls="image" aria-selected="false">Image</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" aria-selected="false">Document</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="finish-tab" data-toggle="tab" href="#finish" role="tab" aria-controls="finish" aria-selected="false">Finish</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div style="margin-top: 50px">
                 <i class="fa fa-user" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
@@ -70,12 +76,12 @@
                         <label for="exampleFormControlTextarea1">Summary</label>
                         <textarea class="form-control" name="summary" id="summary" rows="3" placeholder="Tell us about yourself"></textarea>
                     </div>
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="file" id="profile-upload">
                             <label class="custom-file-label" for="inputGroupFile01">Upload your profile picture</label>
                         </div>
-                    </div>
+                    </div> -->
                     <h6 style="text-align: center; margin-top: 100px">Social medias</h6>
                     <small class="form-text text-muted" style="text-align: center">Provide links for any social media that you have</small>
                     <div class="container-fluid" style="margin-top: 50px">
@@ -189,11 +195,72 @@
                     <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->
                     <!-- <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     <!-- <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button> -->
-                    <button class="btn btn-primary btn-file" id="education-section-btn" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
-             </form>
+                    <button class="btn btn-primary btn-file" id="education-section-btn" data-toggle="tab" href="#work" role="tab" aria-controls="work" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+            </form>
             </div>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade" id="work" role="tabpanel" aria-labelledby="work-tab">
+            <div style="margin-top: 50px">
+                <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
+                <h6 style="text-align: center; color: #D64933">My Work History</h6> 
+                <form method="POST" action="create-work.php" id="create-work"> 
+                    <div id="addWorkSection">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Company</label>
+                                        <input type="text" class="form-control" name="company" id="company" aria-describedby="emailHelp" placeholder="Which company did/do you work?">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Position</label>
+                                        <input type="text" class="form-control" name="position" id="position" placeholder="What did/do you do?">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-sm-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Country</label>
+                                        <input type="text" class="form-control" name="country" id="work_country" aria-describedby="emailHelp" placeholder="Which country do you work?">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">City</label>
+                                        <input type="text" class="form-control" name="city" id="work_city" placeholder="Which city do you work?">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Start Date</label>
+                                        <input type="date" class="form-control" name="startdate" id="work_startdate" aria-describedby="emailHelp" placeholder="The starting date of your job">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">End Date</label>
+                                        <input type="date" class="form-control" name="enddate" id="work_enddate" placeholder="The ending date of your job">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">Present</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                        <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->
+                        <!-- <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
+                        <!-- <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button> -->
+                        <button class="btn btn-primary btn-file" id="work-section-btn" data-toggle="tab" href="#image" role="tab" aria-controls="image" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                </form>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="image" role="tabpanel" aria-labelledby="image-tab">
             <div style="margin-top: 50px">
                 <i class="fa fa-picture-o" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
                 <h6 style="text-align: center; color: #D64933">Augmented Photos</h6>
@@ -203,40 +270,37 @@
                     <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="photo-input"/></span>
                 
                 <!-- <div id="addPhoto"></div> -->
-                <div id="gallery" class="container">
-                    <div class="row" style="padding-top:10px">
-                        
-                        <?php 
-                            $user_id = $_SESSION['id'];
-                            $sql = "SELECT * FROM images WHERE user_id = $user_id";
-                            $result = mysqli_query($conn, $sql);
+                    <div id="gallery" class="container">
+                        <div class="row" style="padding-top:10px">
+                            
+                            <?php 
+                                $user_id = $_SESSION['id'];
+                                $sql = "SELECT * FROM images WHERE user_id = $user_id";
+                                $result = mysqli_query($conn, $sql);
 
-                            $rowcount = mysqli_num_rows($result);
-                            if($rowcount > 0){
-                                while($row = mysqli_fetch_assoc($result)){
-                                    $id = $row['id'];
-                                    $image = $row['image'];
-                        ?>
-                        <div class="col col-sm-3" id="addPhotos">
-                            <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
-                            <br/>
-                            <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
-                        </div>
-                        <?php
+                                $rowcount = mysqli_num_rows($result);
+                                if($rowcount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        $id = $row['id'];
+                                        $image = $row['image'];
+                            ?>
+                            <div class="col col-sm-3" id="addPhotos">
+                                <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
+                                <br/>
+                                <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
+                            </div>
+                            <?php
+                                    }
                                 }
-                            }
-                        ?>
+                            ?>
+                        </div>
                     </div>
-                </div>
-
+                    <button class="btn btn-primary btn-file" id="image-upload-btn" data-toggle="tab" href="#document" role="tab" aria-controls="document" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                 </form>
-                <button class="btn btn-primary btn-file" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
             </div>
         </div>
-        
-        
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <div style="margin-top: 50px">
+        <div class="tab-pane fade" id="document" role="tabpanel" aria-labelledby="document-tab">
+            <div style="margin-top: 50px">
                 <i class="fa fa-file" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
                 <h6 style="text-align: center; color: #D64933">Augmented Documents</h6>
                 
@@ -245,40 +309,39 @@
                     <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="document-input"/></span>
                 
                 <!-- <div id="addPhoto"></div> -->
-                <div id="document-gallery" class="container">
-                    <div class="row" style="padding-top:10px">
-                        <ul>
-                        <?php 
-                            $user_id = $_SESSION['id'];
-                            $sql = "SELECT * FROM documents WHERE user_id = $user_id";
-                            $result = mysqli_query($conn, $sql);
+                    <div id="document-gallery" class="container">
+                        <div class="row" style="padding-top:10px">
+                            <ul>
+                            <?php 
+                                $user_id = $_SESSION['id'];
+                                $sql = "SELECT * FROM documents WHERE user_id = $user_id";
+                                $result = mysqli_query($conn, $sql);
 
-                            $rowcount = mysqli_num_rows($result);
-                            if($rowcount > 0){
-                                while($row = mysqli_fetch_assoc($result)){
-                                    $id = $row['id'];
-                                    $document = $row['document'];
-                        ?>
-                        <div id="addDocuments">
-                            <li><?php echo $document; ?></li>
-                            <!-- <img src="uploads/images/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
-                            <br/>
-                            <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
-                        </div>
-                        <?php
+                                $rowcount = mysqli_num_rows($result);
+                                if($rowcount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        $id = $row['id'];
+                                        $document = $row['document'];
+                            ?>
+                            <div id="addDocuments">
+                                <li><?php echo $document; ?></li>
+                                <!-- <img src="uploads/images/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
+                                <br/>
+                                <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
+                            </div>
+                            <?php
+                                    }
                                 }
-                            }
-                        ?>
-                        </ul>
+                            ?>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
+                    <button class="btn btn-primary btn-file" id="doc-upload-btn" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                 </form>
-                <button class="btn btn-primary btn-file" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
             </div>
         </div>
         <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-        <div style="margin-top: 50px">
+            <div style="margin-top: 50px">
                 <i class="fa fa-video-camera" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
                 <h6 style="text-align: center; color: #D64933">Augmented Videos</h6>
                 
@@ -287,38 +350,47 @@
                     <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="video-input"/></span>
                 
                 <!-- <div id="addPhoto"></div> -->
-                <div id="gallery-video" class="container">
-                    <div class="row" style="padding-top:10px">
-                        
-                        <?php 
-                            $user_id = $_SESSION['id'];
-                            $sql = "SELECT * FROM videos WHERE user_id = $user_id";
-                            $result = mysqli_query($conn, $sql);
+                    <div id="gallery-video" class="container">
+                        <div class="row" style="padding-top:10px">
+                            
+                            <?php 
+                                $user_id = $_SESSION['id'];
+                                $sql = "SELECT * FROM videos WHERE user_id = $user_id";
+                                $result = mysqli_query($conn, $sql);
 
-                            $rowcount = mysqli_num_rows($result);
-                            if($rowcount > 0){
-                                while($row = mysqli_fetch_assoc($result)){
-                                    $id = $row['id'];
-                                    $video = $row['video'];
-                        ?>
-                        <div class="col col-sm-3" id="addVideos">
-                            <!-- <img src="uploads/videos/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
-                            <video width="300" controls style="margin-left: 10px; display: block; margin: auto;"><source src="uploads/videos/<?php echo $video; ?>" type="video/mp4"></video>
-                            <br/>
-                            <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
-                        </div>
-                        <?php
+                                $rowcount = mysqli_num_rows($result);
+                                if($rowcount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        $id = $row['id'];
+                                        $video = $row['video'];
+                            ?>
+                            <div class="col col-sm-3" id="addVideos">
+                                <!-- <img src="uploads/videos/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
+                                <video width="300" controls style="margin-left: 10px; display: block; margin: auto;"><source src="uploads/videos/<?php echo $video; ?>" type="video/mp4"></video>
+                                <br/>
+                                <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
+                            </div>
+                            <?php
+                                    }
                                 }
-                            }
-                        ?>
+                            ?>
+                        </div>
                     </div>
-                </div>
-
+                    <button class="btn btn-primary btn-file" id="video-upload-btn" data-toggle="tab" href="#finish" role="tab" aria-controls="finish" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                 </form>
-                <a class="btn btn-primary btn-file" href="dashboard.php"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Finish</a>
             </div>
         </div>
+        <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="finish-tab">
+            <div style="margin-top: 50px">
+                <div id="finish-form">
+                    <i class="fa fa-smile-o" aria-hidden="true" style="font-size: 50px; display: block; margin: auto; text-align: center; margin-bottom: 10px;"></i>
+                    <h4 style="text-align: center;">Yay! You have created your own resume!</h4>   
+                    <h6 style="text-align: center; color: rgb(184, 184, 184)">Click Finish button to return to dashboard</h6>   
+                    <a class="btn btn-primary btn-file" href="dashboard.php"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Finish</a> 
+                </div>
+            </div>
         </div>
+    </div>
     </div>
 </div>
 
