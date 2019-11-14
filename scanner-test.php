@@ -15,7 +15,6 @@
 
 
   <body style='margin : 0px; overflow: hidden;'>
-  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
     <a-scene embedded arjs>
       <a-marker preset="hiro">
       <a-box position="0 0 0" rotation="0 0 0"></a-box>
