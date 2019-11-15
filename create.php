@@ -10,7 +10,7 @@
         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div> -->
     </div>
     <div class="tab-container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
         </li>
@@ -224,25 +224,25 @@
                                 <div class="col col-sm-3">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Country</label>
-                                        <input type="text" class="form-control" name="country" id="work_country" aria-describedby="emailHelp" placeholder="Which country do you work?">
+                                        <input type="text" class="form-control" name="work_country" id="work_country" aria-describedby="emailHelp" placeholder="Which country do you work?">
                                     </div>
                                 </div>
                                 <div class="col col-sm-3">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">City</label>
-                                        <input type="text" class="form-control" name="city" id="work_city" placeholder="Which city do you work?">
+                                        <input type="text" class="form-control" name="work_city" id="work_city" placeholder="Which city do you work?">
                                     </div>
                                 </div>
                                 <div class="col col-sm-3">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Start Date</label>
-                                        <input type="date" class="form-control" name="startdate" id="work_startdate" aria-describedby="emailHelp" placeholder="The starting date of your job">
+                                        <input type="date" class="form-control" name="work_startdate" id="work_startdate" aria-describedby="emailHelp" placeholder="The starting date of your job">
                                     </div>
                                 </div>
                                 <div class="col col-sm-3">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">End Date</label>
-                                        <input type="date" class="form-control" name="enddate" id="work_enddate" placeholder="The ending date of your job">
+                                        <input type="date" class="form-control" name="work_enddate" id="work_enddate" placeholder="The ending date of your job">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck1">
                                             <label class="custom-control-label" for="customCheck1">Present</label>

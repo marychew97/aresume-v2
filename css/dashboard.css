@@ -180,3 +180,12 @@
     size: A4;
     margin: 0;
 }
+
+.column{
+    position:relative;
+}
+
+.marker{
+    position: absolute; 
+    bottom:0;
+}

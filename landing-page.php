@@ -1,6 +1,10 @@
 <?php require("components/header.php"); ?>
 <body>
-<?php require("navbar.php"); ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="dashboard.php">
+      <img src="images/resumelogo.png" alt="aresume logo" width="100px" height="50px"/>
+  </a>
+</nav>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="row">

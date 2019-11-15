@@ -20,7 +20,7 @@
                  FROM template_temp AS tt 
                  INNER JOIN profile_temp AS pt ON pt.user_id = tt.user_id
                  INNER JOIN institution_temp AS it ON it.user_id = tt.user_id
-                 INNER JOIN work_temp AS wt ON wt.user_id = tt.user_id";
+                 INNER JOIN work_temp AS wt ON wt.user_id = tt.user_id ";
             $result2 = mysqli_query($conn, $sql2);
             if($result2){
                 echo "submitted test";

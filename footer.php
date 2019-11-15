@@ -31,7 +31,6 @@
             success: function (data) {
                 console.log(data);
                 $('#signup-notification').append('<p>'+data+'</p>').css("display", "block");
-                window.location.href="/aresume/dashboard.php"
                 $('#username').val('');
                 $('#email').val('');
                 $('#password').val('');
@@ -55,7 +54,7 @@
             success: function (data) {
                 console.log(data);
                 $('#signin-notification').append('<p>'+data+'</p>').css("display", "block");
-                window.location.href="/aresume/dashboard.php"
+                window.location.href="dashboard.php"
                 $('#email').val('');
                 $('#password').val('');
             }
@@ -111,9 +110,22 @@
         var linkedin = $('#linkedin').val();
         var github = $('#github').val();
         var facebook = $('#facebook').val();
-        // var profile = $('#profile-upload').val();
+        var institution = $('#institution').val();
+        var studyarea = $('#studyarea').val();
+        var edulevel = $('#edulevel').val();
+        var country = $('#country').val();
+        var city = $('#city').val();
+        var startdate = $('#startdate').val();
+        var enddate = $('#enddate').val();
+        var gpa = $('#gpa').val();
+        var company = $('#company').val();
+        var position = $('#position').val();
+        var country = $('#work_country').val();
+        var city = $('#work_city').val();
+        var startdate = $('#work_startdate').val();
+        var enddate = $('#work_enddate').val();
         var formData = $('#create-profile').serialize();
-        // var formData = new FormData($('#create-profile')[0]);
+        console.log(formData)
         $.ajax({
             type: 'post',
             url: 'create-profile.php',
@@ -121,7 +133,7 @@
             success: function (data) {
                 console.log(data);
                 $('html, body').animate({scrollTop:0}, 'fast');
-                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Profile &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
             }
         })
     })
@@ -144,7 +156,7 @@
             success: function (data) {
                 console.log(data)
                 $('html, body').animate({scrollTop:0}, 'fast');
-                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Education &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Education &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
             }
         })
     });
@@ -207,9 +219,8 @@
             contentType: false,
             processData: false,
             success: function (data) {
-
+                $('#success-upload-photo').css('display', 'block')
                 // console.log(data[0].image);
-                
                 $('#addPhotos').append("<img src='uploads/images/"+data.image+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
             }
         })
@@ -217,17 +228,17 @@
 
     $('#image-upload-btn').on('click', function(e){
         $('html, body').animate({scrollTop:0}, 'fast');
-        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Images&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Images&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
     });
 
     $('#doc-upload-btn').on('click', function(e){
         $('html, body').animate({scrollTop:0}, 'fast');
-        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Documents&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+        $('#progress-bar').append('<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Documents&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
     });
 
     $('#video-upload-btn').on('click', function(e){
         $('html, body').animate({scrollTop:0}, 'fast');
-        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Videos&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+        $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Videos&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
     });
 
     $('#document-input').on('change', function(){
@@ -246,6 +257,7 @@
             processData: false,
             success: function (data) {
                 console.log('success');
+                $('#success-upload-document').css('display', 'block')
                 // console.log(data[0].image);
                 $('#addDocuments').append("<li>"+data.document+"</li>");
             }
@@ -267,7 +279,7 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                // console.log(data[0].image);
+                $('#success-upload-video').css('display', 'block')
                 $('#addVideos').append("<video width='300' controls style='display: block; margin: auto;'><source src=uploads/videos/"+data.video+" type='video/mp4'></video>");
                 //  $('#addVideos').append("<img src='uploads/videos/"+data.video+"' alt='"+data.id+"' style='width:150px; height:150px;display: block; margin: auto;'/><br/><button class='btn btn-danger btn-delete' data-toggle='modal' data-target='#exampleModal'>Delete</button>");
             }

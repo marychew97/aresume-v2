@@ -2,8 +2,8 @@
 <body>
 <?php require("navbar.php"); ?>
 <?php require('config/db.php'); ?>
-<div class="card card-collection">
-  <div class="card-header">
+<div class="card card-collection" style="border-color:#2b303a;">
+  <div class="card-header" style="background-color: #2b303a; color: #fff">
     <h5>My Resume Collection</h5>
   </div>
   <div class="card-body">
