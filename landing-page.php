@@ -5,15 +5,18 @@
       <img src="images/resumelogo.png" alt="aresume logo" width="100px" height="50px"/>
   </a>
 </nav>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" >
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col col-md-5 justify-content-center align-self-center">
         <h1 class="display-4">AResume</h1>
         <p class="lead">Build your very own augmented resume today</p>
         <div class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sign up to create</div>
       </div>
-      <div class="col"></div>
+      <!-- <div class="col"></div> -->
+      <div class="col col-md-7">
+        <img src="images/resumes.png" alt="photo" id="landing-photo" style="width: 110%;"/>
+      </div>
     </div>
     
   </div>
