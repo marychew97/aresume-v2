@@ -32,13 +32,13 @@
                $query = mysqli_query($conn,$query);
                if($query)
                {
-               echo "Upload successfully.";
+               echo "<script>alert('Upload successfully.')</script>";
                }
              }
         //    }
  
         }else{
-           echo "Invalid file extension.";
+           echo "<script>alert('Invalid file extension.')</script>";
         }
   
       } 

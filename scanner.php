@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/navbar.css" />
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
-    <script>
+    <!-- <script>
 	  AFRAME.registerComponent('navigate-on-click', {
 	    schema: {
 	      url: {default: ''}
@@ -23,7 +23,7 @@
 	      });
 	    }
 	  });        
-	</script>
+	</script> -->
 </head>
 
 <?php 
@@ -55,7 +55,8 @@
   </div>
   <div style='position: fixed; top: 60px; left: 50px; width:100%; text-align: center; z-index: 1;'>
   <?php 
-            $sql = "SELECT * FROM resume";
+            $resume_id = $_GET['id'];
+            $sql = "SELECT * FROM resume WHERE resume_id = $resume_id";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
             $website = $row['website'];
