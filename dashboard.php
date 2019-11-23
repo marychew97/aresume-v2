@@ -37,7 +37,7 @@
                 <th scope="row">Resume <?php echo $row['resume_id']; ?></th>
                 <td><a href="scanner.php?id=<?php echo $row['resume_id'];?>">Resume <?php echo $row['resume_id']; ?> scanner URL<a></td>
                 <td><a href="generate.php?id=<?php echo $row['resume_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View<a></td>
-                <td><button type="button" class="btn btn-danger btn-resume-delete" id=<?php echo $row['resume_id'];?> data-toggle="modal" data-target="#exampleModal" style="margin:0"><i class="fas fa-bars"></i></button></td>
+                <td><button type="button" class="btn btn-danger btn-resume-delete" id=<?php echo $row['resume_id'];?> data-toggle="modal" data-target="#exampleModal" style="margin:0"><i class="fas fa-trash"></i></button></td>
               </tr>
             <?php
           }
