@@ -1,6 +1,6 @@
 <?php require("components/header.php"); ?>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-custom">
   <a class="navbar-brand" href="dashboard.php">
       <img src="images/resumelogo.png" alt="aresume logo" width="100px" height="50px"/>
   </a>
