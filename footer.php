@@ -307,6 +307,23 @@
         })
     });
 
+    $('.btn-resume-delete').on('click', function(e){
+        var id = $(this).attr('id');
+        $('#delete-resume').val(id);
+
+        formData = new FormData(this);
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'delete-resume.php',
+            data: formData,
+            success: function (data) {
+                // console.log(data[0].image);
+                console.log(data);
+            }
+        })
+    });
+
     // $('#document-input').on('change', function(){
     //     var filename = $(this).val();
     //     $(this).next('.custom-file-label').html(filename);
