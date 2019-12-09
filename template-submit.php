@@ -7,15 +7,11 @@
     $sql = "INSERT INTO template_temp (template, user_id)
             VALUES ('$template', $id)";
     $result = mysqli_query($conn, $sql);
-    if($result){
-        echo "submitted";
+
+    if ($result) {
+        $_SESSION['resume_id'] = mysqli_insert_id($conn);
+        echo "<script>window.location.href='create.php'</script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-
-    // $sql2 = "SELECT * FROM resume, user WHERE resume.user_id = user.id";
-    // $result2 = mysqli_query($conn, $sql2);
-
-    // while($row = mysqli_fetch_assoc($result2)){
-    //     $_SESSION['resume_id'] = $row['resume_id'];
-    // };
-    
 ?>

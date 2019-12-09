@@ -361,6 +361,10 @@
                     </div>
                     <button class="btn btn-primary btn-file" id="video-upload-btn" data-toggle="tab" href="#finish" role="tab" aria-controls="finish" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                 </form>
+                <form method="post" action="video-upload-test.php" enctype='multipart/form-data'>
+                    <input type='file' name='file' />
+                    <input type='submit' value='Upload' name='upload'>
+                </form>
             </div>
         </div>
         <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="finish-tab">

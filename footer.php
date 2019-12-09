@@ -66,19 +66,19 @@
         });
     });
 
-    $('#template-form').on('submit', function(e){
-        e.preventDefault();
-        var formData = $('#template-form').serialize();
-        console.log(formData);
-        $.ajax({
-            type: 'post',
-            url: 'template-submit.php',
-            data: formData,
-            success: function (data) {
-                window.location.href="create.php";
-            }
-        })
-    })
+    // $('#template-form').on('submit', function(e){
+    //     e.preventDefault();
+    //     var formData = $('#template-form').serialize();
+    //     console.log(formData);
+    //     $.ajax({
+    //         type: 'post',
+    //         url: 'template-submit.php',
+    //         data: formData,
+    //         success: function (data) {
+    //             window.location.href="create.php";
+    //         }
+    //     })
+    // })
 
     $('#profile-upload').on('change', function(){
         var filename = $(this).val();
@@ -105,36 +105,15 @@
 
     $('#profile-section-btn').on('click', function(e){
         e.preventDefault();
-        var name = $('#name').val();
-        var job = $('#job').val();
-        var email = $('#email').val();
-        var phone = $('#phone').val();
-        var location = $('#location').val();
-        var summary = $('#summary').val();
-        var website = $('#website').val();
-        var linkedin = $('#linkedin').val();
-        var github = $('#github').val();
-        var facebook = $('#facebook').val();
-        var institution = $('#institution').val();
-        var studyarea = $('#studyarea').val();
-        var edulevel = $('#edulevel').val();
-        var country = $('#country').val();
-        var city = $('#city').val();
-        var startdate = $('#startdate').val();
-        var enddate = $('#enddate').val();
-        var gpa = $('#gpa').val();
-        var company = $('#company').val();
-        var position = $('#position').val();
-        var country = $('#work_country').val();
-        var city = $('#work_city').val();
-        var startdate = $('#work_startdate').val();
-        var enddate = $('#work_enddate').val();
-        var formData = $('#create-profile').serialize();
+        var form = $('#create-profile')[0];
+        var formData = new FormData(form);
         console.log(formData)
         $.ajax({
             type: 'post',
             url: 'create-profile.php',
             data: formData,
+            contentType: false,
+            processData: false,
             success: function (data) {
                 console.log(data);
                 $('html, body').animate({scrollTop:0}, 'fast');
@@ -145,19 +124,23 @@
 
     $('#education-section-btn').on('click', function(e){
         e.preventDefault();
-        var institution = $('#institution').val();
-        var studyarea = $('#studyarea').val();
-        var edulevel = $('#edulevel').val();
-        var country = $('#country').val();
-        var city = $('#city').val();
-        var startdate = $('#startdate').val();
-        var enddate = $('#enddate').val();
-        var gpa = $('#gpa').val();
-        var formData = $('#create-institution').serialize();
+        // var institution = $('#institution').val();
+        // var studyarea = $('#studyarea').val();
+        // var edulevel = $('#edulevel').val();
+        // var country = $('#country').val();
+        // var city = $('#city').val();
+        // var startdate = $('#startdate').val();
+        // var enddate = $('#enddate').val();
+        // var gpa = $('#gpa').val();
+        // var formData = $('#create-institution').serialize();
+        var form = $('#create-institution')[0];
+        var formData = new FormData(form);
         $.ajax({
             type: 'post',
             url: 'create-institution.php',
             data: formData,
+            contentType: false,
+            processData: false,
             success: function (data) {
                 console.log(data)
                 $('html, body').animate({scrollTop:0}, 'fast');

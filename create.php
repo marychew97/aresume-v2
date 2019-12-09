@@ -38,7 +38,7 @@
             <div style="margin-top: 50px">
                 <i class="fa fa-user" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
                 <h6 style="text-align: center; color: #D64933">My Personal Information</h6>
-                <form method="POST" action="create-profile.php" id="create-profile">
+                <form method="POST" action="create-profile.php" id="create-profile" enctype='multipart/form-data'>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col col-sm-6">
@@ -76,12 +76,9 @@
                         <label for="exampleFormControlTextarea1">Summary</label>
                         <textarea class="form-control" name="summary" id="summary" rows="3" placeholder="Tell us about yourself"></textarea>
                     </div>
-                    <!-- <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="file" id="profile-upload">
-                            <label class="custom-file-label" for="inputGroupFile01">Upload your profile picture</label>
-                        </div>
-                    </div> -->
+                    <div class="input-group mb-3">
+                        <input type="file" name="file" style="font-family: 'Baloo Bhai', cursive;">
+                    </div>
                     <h6 style="text-align: center; margin-top: 100px">Social medias</h6>
                     <small class="form-text text-muted" style="text-align: center">Provide links for any social media that you have</small>
                     <div class="container-fluid" style="margin-top: 50px">
@@ -115,6 +112,7 @@
                     <!-- <button class="btn btn-primary btn-file" name="submit" href="#profile" aria-controls="profile"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     <!-- <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</a> -->
                     <button class="btn btn-primary btn-file" id="profile-section-btn" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                    <!-- <button class="btn btn-primary btn-file" id="profile-section-btn" ><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     </form>
                 </div>
             </div>
@@ -184,12 +182,23 @@
                             </div>
                             <div class="col col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">GPA</label>
+                                <label for="exampleInputEmail1">CGPA</label>
                                 <input type="text" class="form-control" name="gpa" id="gpa" aria-describedby="emailHelp" placeholder="Your GPA">
                             </div>
                             </div>
                         </div>
-                        
+                        <h6 style="text-align: center; margin-top: 100px">Your attachments</h6>
+                        <small class="form-text text-muted" style="text-align: center">Upload your transcript</small>
+                        <div class="container-fluid" style="margin-top: 50px">
+                            <div class="row">
+                                <div class="col col-sm-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Transcript</label>
+                                        <input type="file" name="file" style="font-family: 'Baloo Bhai', cursive;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                     <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->
