@@ -271,8 +271,8 @@
                                         <label for="exampleInputPassword1">End Date</label>
                                         <input type="date" class="form-control" name="work_enddate" id="work_enddate" placeholder="The ending date of your job">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1">Present</label>
+                                            <input type="checkbox" class="custom-control-input" id="checkworkenddate">
+                                            <label class="custom-control-label" for="checkworkenddate">Present</label>
                                         </div>
                                     </div>
                                 </div>

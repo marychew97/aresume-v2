@@ -149,6 +149,15 @@
         })
     });
 
+    $('#checkworkenddate').on('change', function(e){
+        var checked = this.checked;
+        if(checked){
+            $('#work_enddate').prop('type', 'text').val('Present');
+        }else{
+            $('#work_enddate').prop('type', 'date');
+        }
+    })
+
     $('#work-section-btn').on('click', function(e){
         e.preventDefault();
         var company = $('#company').val();
