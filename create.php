@@ -290,39 +290,54 @@
         <div class="tab-pane fade" id="image" role="tabpanel" aria-labelledby="image-tab">
             <div style="margin-top: 50px">
                 <i class="fa fa-picture-o" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
-                <h6 style="text-align: center; color: #D64933">Augmented Photos</h6>
-                
-                <form method="POST" action="image-upload.php" enctype="multipart/form-data" id="image-upload-form">
-                    <h4 style="text-align:center">Upload your photos</h4>
-                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="photo-input"/></span>
-                
-                <!-- <div id="addPhoto"></div> -->
-                    <div id="gallery" class="container">
-                        <div class="row" style="padding-top:10px">
-                            
-                            <?php 
-                                $user_id = $_SESSION['id'];
-                                $sql = "SELECT * FROM images WHERE user_id = $user_id";
-                                $result = mysqli_query($conn, $sql);
-
-                                $rowcount = mysqli_num_rows($result);
-                                if($rowcount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        $id = $row['id'];
-                                        $image = $row['image'];
-                            ?>
-                            <div class="col col-sm-3" id="addPhotos">
-                                <img src="uploads/images/<?php echo $image; ?>" alt="<?php echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/>
-                                <br/>
-                                <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php echo $id; ?>>Delete</button>
+                <h6 style="text-align: center; color: #D64933">My Activities</h6>
+                <form method="POST" action="create-activities.php" id="create-activities"> 
+                    <div id="addActivitySection">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Activity Name</label>
+                                        <input type="text" class="form-control" name="activity" id="activity" aria-describedby="emailHelp" placeholder="What activity did you join?">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Country</label>
+                                        <input type="text" class="form-control" name="activity_country" id="activity_country" aria-describedby="emailHelp" placeholder="Which country did you join this activity?">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">City</label>
+                                        <input type="text" class="form-control" name="activity_city" id="activity_city" placeholder="Which city did you join this activity?">
+                                    </div>
+                                </div>
                             </div>
-                            <?php
-                                    }
-                                }
-                            ?>
+                            <div class="row">
+                                <div class="col col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Start Date</label>
+                                        <input type="date" class="form-control" name="activity_startdate" id="activity_startdate" aria-describedby="emailHelp" placeholder="The starting date of your activity">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">End Date</label>
+                                        <input type="date" class="form-control" name="activity_enddate" id="activity_enddate" placeholder="The ending date of your activity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Description</label>
+                                <textarea class="form-control" name="activity_desc" id="activity_desc" rows="3" placeholder="Describe your activity here"></textarea>
+                            </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-file" id="image-upload-btn" data-toggle="tab" href="#document" role="tab" aria-controls="document" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                        <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->
+                        <!-- <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
+                        <!-- <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button> -->
+                        <button class="btn btn-primary btn-file" id="activity-section-btn" data-toggle="tab" href="#document" role="tab" aria-controls="document" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                 </form>
             </div>
         </div>

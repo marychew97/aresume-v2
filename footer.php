@@ -179,6 +179,24 @@
         })
     });
 
+    $('#activity-section-btn').on('click', function(e){
+        e.preventDefault();
+        var form = $('#create-activities')[0];
+        var formData = new FormData(form);
+        $.ajax({
+            type: 'post',
+            url: 'create-activities.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data)
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Activities &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
+    });
+
     $('#addEducation').on('click', function(e){
         e.preventDefault();
         $('#addEducationSection').append('<div class="container-fluid" style="margin-top: 60px"><div class="row"><div class="col col-sm-4"><div class="form-group"><label for="exampleInputEmail1">Institution</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which institution do/did you study?"></div></div><div class="col col-sm-4"><div class="form-group"><label for="exampleInputPassword1">Area of study</label><input type="text" class="form-control" id="exampleInputPassword1" placeholder="What do you study?"></div></div><div class="col col-sm-4"><div class="form-group"><label for="exampleInputPassword1">Your highest education level</label><select class="custom-select"><option value="Some High School">Some High School</option><option value="High School Diploma">High School Diploma</option><option value="Some College">Some College</option><option value="Associate Degree">Associate Degree</option><option value="Bachelor\'s Degree">Bachelor\'s Degree</option><option value="Master\'s Degree or Higher">Master\'s Degree or Higher</option></select></div></div></div><div class="row"><div class="col col-sm-3"><div class="form-group"><label for="exampleInputEmail1">Country</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Which country do you study?"></div></div><div class="col col-sm-3"><div class="form-group"><label for="exampleInputPassword1">City</label><input type="text" class="form-control" id="exampleInputPassword1" placeholder="Which city do you study?"></div></div><div class="col col-sm-3"><div class="form-group"><label for="exampleInputEmail1">Start Date</label><input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="The starting date of your study"></div></div><div class="col col-sm-3"><div class="form-group"><label for="exampleInputPassword1">End Date</label><input type="date" class="form-control" id="exampleInputPassword1" placeholder="The ending date of your study"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label" for="customCheck1">Present</label></div></div></div><div class="col col-sm-3"><div class="form-group"><label for="exampleInputEmail1">GPA</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your GPA"></div></div></div></form><button class="btn btn-danger" id="removeEducation">Remove</button></div>');
