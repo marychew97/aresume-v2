@@ -183,7 +183,7 @@
                             <div class="col col-sm-3">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">CGPA</label>
-                                <input type="text" class="form-control" name="gpa" id="gpa" aria-describedby="emailHelp" placeholder="Your GPA">
+                                <input type="text" class="form-control" name="gpa" id="gpa" aria-describedby="emailHelp" placeholder="Your CGPA">
                             </div>
                             </div>
                         </div>
@@ -191,9 +191,10 @@
                         <small class="form-text text-muted" style="text-align: center">Upload your transcript</small>
                         <div class="container-fluid" style="margin-top: 50px">
                             <div class="row">
-                                <div class="col col-sm-3">
+                                <div class="col" style="text-align: center">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Transcript</label>
+                                        <br/>
                                         <input type="file" name="file" style="font-family: 'Baloo Bhai', cursive;">
                                     </div>
                                 </div>

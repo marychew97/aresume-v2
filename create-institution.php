@@ -24,8 +24,11 @@
     $user_id = $_SESSION['id'];
     $resume_id = $_SESSION['resume_id'];
 
-    $sql = "INSERT INTO institution_temp (user_id, institution, studyarea, edulevel, country, city, startdate, enddate, gpa)
-        VALUES ($user_id, '$institution', '$studyarea', '$edulevel', '$country', '$city', '$startdate', '$enddate', '$cgpa')";
+    $folder = "uploads/documents/";
+    move_uploaded_file($temp_name, $folder.$transcript);
+
+    $sql = "INSERT INTO institution_temp (user_id, resume_id, institution, studyarea, edulevel, country, city, startdate, enddate, cgpa, transcript)
+            VALUES ($user_id, $resume_id, '$institution', '$studyarea', '$edulevel', '$country', '$city', '$startdate', '$enddate', '$cgpa', '$transcript')";
     $result = mysqli_query($conn, $sql);
 
     // $sql2 = "INSERT INTO resume (user_id, template, name, job, email, phone, location, summary, website, linkedin, github, facebook, institution, studyarea, edulevel, country, city, startdate, enddate, gpa)

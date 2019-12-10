@@ -124,15 +124,6 @@
 
     $('#education-section-btn').on('click', function(e){
         e.preventDefault();
-        // var institution = $('#institution').val();
-        // var studyarea = $('#studyarea').val();
-        // var edulevel = $('#edulevel').val();
-        // var country = $('#country').val();
-        // var city = $('#city').val();
-        // var startdate = $('#startdate').val();
-        // var enddate = $('#enddate').val();
-        // var gpa = $('#gpa').val();
-        // var formData = $('#create-institution').serialize();
         var form = $('#create-institution')[0];
         var formData = new FormData(form);
         $.ajax({
