@@ -10,7 +10,7 @@
         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div> -->
     </div>
     <div class="tab-container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
         </li>
@@ -76,7 +76,8 @@
                         <label for="exampleFormControlTextarea1">Summary</label>
                         <textarea class="form-control" name="summary" id="summary" rows="3" placeholder="Tell us about yourself"></textarea>
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Profile picture:</label>&nbsp;&nbsp;
                         <input type="file" name="file" style="font-family: 'Baloo Bhai', cursive;">
                     </div>
                     <h6 style="text-align: center; margin-top: 100px">Social medias</h6>
@@ -152,53 +153,46 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col col-sm-3">
+                            <div class="col col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Country</label>
                                     <input type="text" class="form-control" name="country" id="country" aria-describedby="emailHelp" placeholder="Which country do you study?">
                                 </div>
                             </div>
-                            <div class="col col-sm-3">
+                            <div class="col col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">City</label>
                                     <input type="text" class="form-control" name="city" id="city" placeholder="Which city do you study?">
                                 </div>
                             </div>
-                            <div class="col col-sm-3">
+                        </div>
+                        <div class="row">
+                            <div class="col col-sm-4">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Start Date</label>
                                     <input type="date" class="form-control" name="startdate" id="startdate" aria-describedby="emailHelp" placeholder="The starting date of your study">
                                 </div>
                             </div>
-                            <div class="col col-sm-3">
+                            <div class="col col-sm-4">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">End Date</label>
                                     <input type="date" class="form-control" name="enddate" id="enddate" placeholder="The ending date of your study">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Present</label>
+                                        <input type="checkbox" class="custom-control-input" id="check-edu-date">
+                                        <label class="custom-control-label" for="check-edu-date">Present</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-sm-3">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">CGPA</label>
-                                <input type="text" class="form-control" name="gpa" id="gpa" aria-describedby="emailHelp" placeholder="Your CGPA">
-                            </div>
+                            <div class="col col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">CGPA</label>
+                                    <input type="text" class="form-control" name="gpa" id="gpa" aria-describedby="emailHelp" placeholder="Your CGPA">
+                                </div>
                             </div>
                         </div>
-                        <h6 style="text-align: center; margin-top: 100px">Your attachments</h6>
-                        <small class="form-text text-muted" style="text-align: center">Upload your transcript</small>
-                        <div class="container-fluid" style="margin-top: 50px">
-                            <div class="row">
-                                <div class="col" style="text-align: center">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Transcript</label>
-                                        <br/>
-                                        <input type="file" name="file" style="font-family: 'Baloo Bhai', cursive;">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Transcript:</label>&nbsp;&nbsp;
+                            <input type="file" name="file" style="font-family: 'Baloo Bhai', cursive;">
                         </div>
                     </div>
                 </div>

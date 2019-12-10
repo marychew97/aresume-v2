@@ -122,6 +122,15 @@
         })
     })
 
+    $('#check-edu-date').on('change', function(e){
+        var checked = this.checked;
+        if(checked){
+            $('#enddate').prop('type', 'text').val('Present');
+        }else{
+            $('#enddate').prop('type', 'date');
+        }
+    })
+
     $('#education-section-btn').on('click', function(e){
         e.preventDefault();
         var form = $('#create-institution')[0];
