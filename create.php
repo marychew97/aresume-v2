@@ -201,10 +201,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Transcript:</label>&nbsp;&nbsp;
-                            <input type="file" name="file" style="font-family: 'Baloo Bhai', cursive;">
+                        <br/>
+                        <div class="row">
+                            <div class="col col-sm-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Transcript</label><br/>
+                                    <input type="file" name="transcript" style="font-family: 'Baloo Bhai', cursive;">
+                                </div>
+                            </div>
+                            <div class="col col-sm-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Certificate</label><br/>
+                                    <input type="file" name="certificate" style="font-family: 'Baloo Bhai', cursive;">
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
                     <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->

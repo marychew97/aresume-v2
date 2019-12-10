@@ -11,25 +11,22 @@
     $enddate = mysqli_real_escape_string($conn, $_POST['enddate']);
     $cgpa = mysqli_real_escape_string($conn, $_POST['gpa']);
 
-    $transcript = $_FILES['file']['name'];  
-    $temp_name  = $_FILES['file']['tmp_name'];  
+    $transcript = $_FILES['transcript']['name'];  
+    $transcript_temp_name  = $_FILES['transcript']['tmp_name'];  
+    $transcript_folder = "uploads/documents/";
+    move_uploaded_file($transcript_temp_name, $transcript_folder.$transcript);
 
-    // $company = mysqli_real_escape_string($conn, $_POST['company']);
-    // $position = mysqli_real_escape_string($conn, $_POST['position']);
-    // $work_country = mysqli_real_escape_string($conn, $_POST['work_country']);
-    // $work_city = mysqli_real_escape_string($conn, $_POST['work_city']);
-    // $work_startdate = mysqli_real_escape_string($conn, $_POST['work_startdate']);
-    // $work_enddate = mysqli_real_escape_string($conn, $_POST['work_enddate']); 
+    $certificate = $_FILES['certificate']['name'];  
+    $certificate_temp_name  = $_FILES['certificate']['tmp_name'];  
+    $certificate_folder = "uploads/documents/";
+    move_uploaded_file($certificate_temp_name, $certificate_folder.$certificate);
 
     $user_id = $_SESSION['id'];
     $resume_id = $_SESSION['resume_id'];
 
-    $folder = "uploads/documents/";
-    move_uploaded_file($temp_name, $folder.$transcript);
-
-    $sql = "INSERT INTO institution_temp (user_id, resume_id, institution, studyarea, edulevel, country, city, startdate, enddate, cgpa, transcript)
-            VALUES ($user_id, $resume_id, '$institution', '$studyarea', '$edulevel', '$country', '$city', '$startdate', '$enddate', '$cgpa', '$transcript')";
-    $result = mysqli_query($conn, $sql);
+    // $sql = "INSERT INTO institution_temp (user_id, resume_id, institution, studyarea, edulevel, country, city, startdate, enddate, cgpa, transcript, certificate)
+    //         VALUES ($user_id, $resume_id, '$institution', '$studyarea', '$edulevel', '$country', '$city', '$startdate', '$enddate', '$cgpa', '$transcript', '$certificate')";
+    // $result = mysqli_query($conn, $sql);
 
     // $sql2 = "INSERT INTO resume (user_id, template, name, job, email, phone, location, summary, website, linkedin, github, facebook, institution, studyarea, edulevel, country, city, startdate, enddate, gpa)
     //          SELECT tt.user_id, template, pt.name, pt.job, pt.email, pt.phone, pt.location, pt.summary, pt.website, pt.linkedin, pt.github, pt.facebook, it.institution, it.studyarea, it.edulevel, it.country, it.city, it.startdate, it.enddate, it.gpa
