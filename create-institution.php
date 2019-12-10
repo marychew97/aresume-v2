@@ -24,9 +24,9 @@
     $user_id = $_SESSION['id'];
     $resume_id = $_SESSION['resume_id'];
 
-    // $sql = "INSERT INTO institution_temp (user_id, resume_id, institution, studyarea, edulevel, country, city, startdate, enddate, cgpa, transcript, certificate)
-    //         VALUES ($user_id, $resume_id, '$institution', '$studyarea', '$edulevel', '$country', '$city', '$startdate', '$enddate', '$cgpa', '$transcript', '$certificate')";
-    // $result = mysqli_query($conn, $sql);
+    $sql = "INSERT INTO institution_temp (user_id, resume_id, institution, studyarea, edulevel, country, city, startdate, enddate, cgpa, transcript, certificate)
+            VALUES ($user_id, $resume_id, '$institution', '$studyarea', '$edulevel', '$country', '$city', '$startdate', '$enddate', '$cgpa', '$transcript', '$certificate')";
+    $result = mysqli_query($conn, $sql);
 
     // $sql2 = "INSERT INTO resume (user_id, template, name, job, email, phone, location, summary, website, linkedin, github, facebook, institution, studyarea, edulevel, country, city, startdate, enddate, gpa)
     //          SELECT tt.user_id, template, pt.name, pt.job, pt.email, pt.phone, pt.location, pt.summary, pt.website, pt.linkedin, pt.github, pt.facebook, it.institution, it.studyarea, it.edulevel, it.country, it.city, it.startdate, it.enddate, it.gpa
