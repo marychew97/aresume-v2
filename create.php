@@ -110,6 +110,17 @@
                             </div>
                         </div>
                     </div>
+                    <h6 style="text-align: center; margin-top: 100px">Video</h6>
+                    <small class="form-text text-muted" style="text-align: center">Upload any video like your introduction, etc.</small>
+                    <div class="container-fluid" style="margin-top: 50px">
+                        <div class="row">
+                            <div class="col" style="text-align: center">
+                                <div class="form-group">
+                                    <input type='file' name='video' id="file-upload"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- <button class="btn btn-primary btn-file" name="submit" href="#profile" aria-controls="profile"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
                     <!-- <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</a> -->
                     <button class="btn btn-primary btn-file" id="profile-section-btn" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>

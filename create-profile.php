@@ -20,13 +20,49 @@
     $temp_name  = $_FILES['file']['tmp_name'];  
     $folder = "uploads/images/";
     move_uploaded_file($temp_name, $folder.$name);
-    
-    $sql = "INSERT INTO profile_temp (user_id, resume_id, name, job, email, phone, location, summary, website, linkedin, github, facebook, profile_image)
-    VALUES ($user_id, $resume_id, '$name', '$job', '$email', '$phone', '$location', '$summary', '$website', '$linkedin', '$github', '$facebook', '$image_name')";
-    $result = mysqli_query($conn, $sql);
 
-    if($result){
-        echo "Profile information submitted successfully";
+    $maxsize = 5242880; // 5MB
+    $video_name = $_FILES['video']['name'];
+    $target_dir = "uploads/videos/";
+    $target_file = $target_dir . $_FILES["video"]["name"];
+    echo $video_name;
+
+    // Select file type
+    $videoFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+ 
+    // Valid file extensions
+    $extensions_arr = array("mp4","avi","3gp","mov","mpeg");
+
+    // Check extension
+    if(in_array($videoFileType,$extensions_arr)){
+      move_uploaded_file($_FILES['video']['tmp_name'],$target_file);
+         // Insert record
+         $sql = "INSERT INTO profile_temp (user_id, resume_id, name, job, email, phone, location, summary, website, linkedin, github, facebook, profile_image, video)
+                 VALUES ($user_id, $resume_id, '$name', '$job', '$email', '$phone', '$location', '$summary', '$website', '$linkedin', '$github', '$facebook', '$image_name', '$video_name')";
+         $result = mysqli_query($conn, $sql);
+          if($result){
+              echo "Profile information submitted successfully";
+          }
+       
+
+       // Check file size
+    //    if(($_FILES['file']['size'] >= $maxsize) || ($_FILES["file"]["size"] == 0)) {
+    //      echo "File too large. File must be less than 5MB.";
+    //    }else{
+         // Upload
+         // if(move_uploaded_file($_FILES['video']['tmp_name'],$target_file)){
+         //   // Insert record
+         //   $sql = "INSERT INTO profile_temp (user_id, resume_id, name, job, email, phone, location, summary, website, linkedin, github, facebook, profile_image, video)
+         //           VALUES ($user_id, $resume_id, '$name', '$job', '$email', '$phone', '$location', '$summary', '$website', '$linkedin', '$github', '$facebook', '$image_name', $video_name)";
+         //    $result = mysqli_query($conn, $sql);
+
+         //    if($result){
+         //        echo "Profile information submitted successfully";
+         //    }
+         // }
+    //    }
+
+    }else{
+       echo "<script>alert('Invalid file extension.')</script>";
     }
-    
 ?>
