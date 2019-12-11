@@ -17,8 +17,8 @@
       <input type="submit" value="Submit" />
     </form>
 
-    <form method="post" action="image-test.php" enctype='multipart/form-data'>
-      <input type="file" name="file" >
+    <form method="post" action="image-test.php" enctype='multipart/form-data' id="multiple-image">
+      <input type="file" name="files[]" multiple>
       <input type='submit' value='Upload Image' name='upload'>
     </form>
 
@@ -81,6 +81,15 @@
           }
         })
     });
+
+    // $('#multiple-image').on('submit', function(e){
+    //   e.preventDefault();
+    //   var form = $('#multiple-image')[0];
+    //   var formData = new FormData(form);
+
+    //   console.log(...formData);
+    //   $
+    // })
 
     $('#linkedin').on('click', function(){
       IN.Event.on(IN, "auth", getProfileData);

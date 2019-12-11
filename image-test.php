@@ -2,17 +2,26 @@
     include "config/db.php";
 
     if(isset($_POST)){
-        $name       = $_FILES['file']['name'];  
-        $temp_name  = $_FILES['file']['tmp_name'];  
-        echo $name;
-        echo $temp_name;
+        //to store uploaded files path
+        $images_arr = array();
+        $image_count = count($_FILES['files']['name']);
+        $name = $_FILES['files']['name'];
+        $temp_name  = $_FILES['files']['tmp_name'];
+        $images = implode(',', $_FILES['files']['name']);
+        
+        echo $images;
         if(isset($name)){
-            if(!empty($name)){      
+            if(!empty($name)){   
+            
               $folder = "uploads/images/";
-              move_uploaded_file($temp_name, $folder.$name);
+
+              for($i=0; $i<$image_count; $i++){
+                move_uploaded_file($temp_name[$i], $folder.$name[$i]);
+              }
+              
 
               $sql = "INSERT INTO image_test (image)
-                      VALUE ('$name')";
+                      VALUE ('$images')";
 
               $result = mysqli_query($conn, $sql);
 
@@ -22,20 +31,8 @@
               while($row = mysqli_fetch_assoc($result2)){
                     $json_array = $row;
                   }
-
-              // $rowcount = mysqli_num_rows($result2);
-              // if($rowcount > 0){
-              //   while($row = mysqli_fetch_assoc($result2)){
-              //     echo $row;
-              //   }
-              // }
+                  
               echo json_encode($json_array); 
-
-              // $row = mysqli_fetch_assoc($result2);
-              
-              // if($result2){
-              //   echo $row;
-              // }
             }       
         }  else {
             echo 'You should select a file to upload !!';

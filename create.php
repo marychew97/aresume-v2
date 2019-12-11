@@ -332,6 +332,10 @@
                                 <label for="exampleFormControlTextarea1">Description</label>
                                 <textarea class="form-control" name="activity_desc" id="activity_desc" rows="3" placeholder="Describe your activity here"></textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Photos of the activity: </label>&nbsp;&nbsp;
+                                <input type="file" name="photos[]" style="font-family: 'Baloo Bhai', cursive;" multiple>
+                            </div>
                         </div>
                     </div>
                         <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->
