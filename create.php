@@ -348,81 +348,44 @@
         <div class="tab-pane fade" id="document" role="tabpanel" aria-labelledby="document-tab">
             <div style="margin-top: 50px">
                 <i class="fa fa-file" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
-                <h6 style="text-align: center; color: #D64933">Augmented Documents</h6>
-                
-                <form method="POST" action="document-upload.php" enctype="multipart/form-data" id="document-upload-form">
-                    <h4 style="text-align:center">Upload your documents</h4>
-                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="document-input"/></span>
-                
-                <!-- <div id="addPhoto"></div> -->
-                    <div id="document-gallery" class="container">
-                        <div class="row" style="padding-top:10px">
-                            <ul>
-                            <?php 
-                                $user_id = $_SESSION['id'];
-                                $sql = "SELECT * FROM documents WHERE user_id = $user_id";
-                                $result = mysqli_query($conn, $sql);
-
-                                $rowcount = mysqli_num_rows($result);
-                                if($rowcount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        $id = $row['id'];
-                                        $document = $row['document'];
-                            ?>
-                            <div id="addDocuments">
-                                <li><?php echo $document; ?></li>
-                                <!-- <img src="uploads/images/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
-                                <br/>
-                                <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
+                <h6 style="text-align: center; color: #D64933">My Awards</h6>
+                <form method="POST" action="create-award.php" id="create-award"> 
+                    <div id="addAccompSection">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Award title</label>
+                                        <input type="text" class="form-control" name="award" id="award" aria-describedby="emailHelp" placeholder="What award have you done?">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Awarder</label>
+                                        <input type="text" class="form-control" name="awarder" id="awarder" aria-describedby="emailHelp" placeholder="Who awarded you this award?">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Date</label>
+                                        <input type="date" class="form-control" name="award_date" id="award_date" placeholder="The date of the award">
+                                    </div>
+                                </div>
                             </div>
-                            <?php
-                                    }
-                                }
-                            ?>
-                            </ul>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Description</label>
+                                <textarea class="form-control" name="award_desc" id="award_desc" rows="3" placeholder="Describe your award here"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Your award certificate: </label>&nbsp;&nbsp;
+                                <input type="file" name="award_cert" style="font-family: 'Baloo Bhai', cursive;">
+                            </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-file" id="doc-upload-btn" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
-                </form>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-            <div style="margin-top: 50px">
-                <i class="fa fa-video-camera" aria-hidden="true" style="font-size: 30px; display: block; margin: auto; text-align: center; margin-bottom: 10px; color: #D64933"></i>
-                <h6 style="text-align: center; color: #D64933">Augmented Videos</h6>
-                
-                <form method="POST" action="video-upload-test.php" enctype="multipart/form-data" id="video-upload-form">
-                    <h4 style="text-align:center">Upload your videos</h4>
-                    <span class="btn btn-primary btn-file" style="border: 1px solid white; cursor: pointer"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;Add and upload <input type="file" name="file" id="video-input"/></span>
-                
-                <!-- <div id="addPhoto"></div> -->
-                    <div id="gallery-video" class="container">
-                        <div class="row" style="padding-top:10px">
-                            
-                            <?php 
-                                $user_id = $_SESSION['id'];
-                                $sql = "SELECT * FROM videos WHERE user_id = $user_id";
-                                $result = mysqli_query($conn, $sql);
-
-                                $rowcount = mysqli_num_rows($result);
-                                if($rowcount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        $id = $row['id'];
-                                        $video = $row['video'];
-                            ?>
-                            <div class="col col-sm-3" id="addVideos">
-                                <!-- <img src="uploads/videos/<?php //echo $image; ?>" alt="<?php //echo $id;?>" style="width:150px; height:150px; display: block; margin: auto;"/> -->
-                                <video width="300" controls style="margin-left: 10px; display: block; margin: auto;"><source src="uploads/videos/<?php echo $video; ?>" type="video/mp4"></video>
-                                <br/>
-                                <!-- <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" id=<?php //echo $id; ?>>Delete</button> -->
-                            </div>
-                            <?php
-                                    }
-                                }
-                            ?>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary btn-file" id="video-upload-btn" data-toggle="tab" href="#finish" role="tab" aria-controls="finish" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
+                        <!-- <button class="btn btn-primary btn-file" id="addEducation"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button> -->
+                        <!-- <button class="btn btn-primary btn-file" type="submit" id="resume-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button> -->
+                        <!-- <button class="btn btn-primary btn-add" id="addVideobutton" style="color: #2B303A">Add</button> -->
+                        <button class="btn btn-primary btn-file" id="award-section-btn" data-toggle="tab" href="#finish" role="tab" aria-controls="finish" aria-selected="false"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;Next</button>
                 </form>
             </div>
         </div>
