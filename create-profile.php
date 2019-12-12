@@ -19,7 +19,7 @@
     $image_name = $_FILES['file']['name'];  
     $temp_name  = $_FILES['file']['tmp_name'];  
     $folder = "uploads/images/";
-    move_uploaded_file($temp_name, $folder.$name);
+    move_uploaded_file($temp_name, $folder.$image_name);
 
     $maxsize = 5242880; // 5MB
     $video_name = $_FILES['video']['name'];
