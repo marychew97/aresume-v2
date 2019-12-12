@@ -10,7 +10,7 @@
     <div class="resume-list" style="padding: 20px">
       <?php 
         $id = $_SESSION['id'];
-        $sql = "SELECT * FROM resume WHERE user_id = $id";
+        $sql = "SELECT * FROM template_temp WHERE user_id = $id";
         $result = mysqli_query($conn, $sql);
 
         $rowcount = mysqli_num_rows($result);
@@ -36,7 +36,7 @@
               <tr>
                 <th scope="row">Resume <?php echo $row['resume_id']; ?></th>
                 <td><a href="scanner.php?id=<?php echo $row['resume_id'];?>">Resume <?php echo $row['resume_id']; ?> scanner URL<a></td>
-                <td><a href="generate.php?id=<?php echo $row['resume_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View<a></td>
+                <td><a href="generate.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View<a></td>
                 <td><button type="button" class="btn btn-danger btn-resume-delete" id=<?php echo $row['resume_id'];?> data-toggle="modal" data-target="#exampleModal" style="margin:0"><i class="fas fa-trash"></i></button></td>
               </tr>
             <?php

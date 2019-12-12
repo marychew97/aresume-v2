@@ -3,10 +3,17 @@
 
 <?php 
     $resume_id = $_GET['id'];
-    $sql = "SELECT * FROM resume WHERE resume_id = $resume_id";
+    $user_id = $_GET['user_id'];
+    $sql = "SELECT * FROM template_temp AS tt 
+            JOIN profile_temp AS pt ON tt.resume_id = pt.resume_id AND tt.user_id = pt.user_id
+            JOIN institution_temp AS it ON tt.resume_id = it.resume_id AND tt.user_id = it.user_id
+            JOIN work_temp AS wt ON tt.resume_id = wt.resume_id AND tt.user_id = wt.user_id
+            JOIN award_temp AS awt ON tt.resume_id = awt.resume_id AND tt.user_id = awt.user_id
+            JOIN activities_temp AS act ON tt.resume_id = act.resume_id AND tt.user_id = act.user_id";
     $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_assoc($result)){
+        $profile_image = $row['profile_image'];
         $name = $row['name'];
         $job = $row['job'];
         $email = $row['email'];
@@ -25,7 +32,7 @@
         $city = $row['city'];
         $startdate = $row['startdate'];
         $enddate = $row['enddate'];
-        $gpa = $row['gpa'];
+        $gpa = $row['cgpa'];
 
         $company = $row['company'];
         $position = $row['position'];
@@ -33,11 +40,31 @@
         $work_city = $row['work_city'];
         $work_startdate = $row['work_startdate'];
         $work_enddate = $row['work_enddate'];
+
+        $activity_name = $row['activity_name'];
+        $activity_country = $row['activity_country'];
+        $activity_city = $row['activity_city'];
+        $activity_startdate = $row['activity_startdate'];
+        $activity_enddate = $row['activity_enddate'];
+        $activity_desc = $row['activity_desc'];
+
+        $award = $row['award'];
+        $awarder = $row['awarder'];
+        $award_date = $row['date'];
+        $award_desc = $row['award_desc'];
+
         ?>
         <div style="background-image:url('images/aresume-template-background.png')" class="page">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col col-md-4 column">
+                        <?php 
+                            if(!empty($profile_image)){
+                                ?>
+                                <img src="uploads/images/<?php echo $profile_image; ?>" alt="profile-image" style="width: 60%; height: 15%; display: block; margin: auto; border-radius: 50%; margin-bottom: 20px;"/>
+                                <?php
+                            }
+                        ?>
                         <?php 
                             if(!empty($name)){
                                 ?>
@@ -131,7 +158,7 @@
                                         <p style="margin-bottom:0px; font-style: italic"><?php echo $city;?>, <?php echo $country;?></p>
                                         <p style="margin-bottom:10px; font-style: italic"><?php echo $startdate;?> - <?php echo $enddate;?></p>
                                         <?php if(!empty($gpa)) { ?>
-                                            <p>GPA: <?php echo $gpa;?></p>
+                                            <p>CGPA: <?php echo $gpa;?></p>
                                         <?php } ?>
                                     </div>
                                 <?php
@@ -146,6 +173,31 @@
                                         <p style="margin-bottom:10px;"><?php echo $company;?></p>
                                         <p style="margin-bottom:0px; font-style: italic"><?php echo $work_city;?>, <?php echo $work_country;?></p>
                                         <p style="margin-bottom:10px; font-style: italic"><?php echo $work_startdate;?> - <?php echo $work_enddate;?></p>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+                        <?php 
+                            if(!empty($activity_name)){
+                                ?>
+                                    <div style="background-color: #424b54; padding: 10px 10px 10px 40px; color: #fff; margin-top: 20px"><h4><i class="fa fa-puzzle-piece" aria-hidden="true"></i>&nbsp;&nbsp;Activities</h4></div>
+                                    <div style="padding: 10px 10px 10px 40px; color: #424b54;; font-weight: bold">
+                                        <h5 style="margin-bottom:10px;"><?php echo $activity_name;?></h5>
+                                        <p style="margin-bottom:0px; font-style: italic"><?php echo $activity_city;?>, <?php echo $activity_country;?></p>
+                                        <p style="margin-bottom:10px; font-style: italic"><?php echo $activity_startdate;?> - <?php echo $activity_enddate;?></p>
+                                        <p style="margin-bottom:10px"><?php echo $activity_desc;?></p>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+                        <?php 
+                            if(!empty($award)){
+                                ?>
+                                    <div style="background-color: #424b54; padding: 10px 10px 10px 40px; color: #fff; margin-top: 20px"><h4><i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;Awards</h4></div>
+                                    <div style="padding: 10px 10px 10px 40px; color: #424b54;; font-weight: bold">
+                                        <h5 style="margin-bottom:10px;"><?php echo $award;?>, <?php echo $awarder;?></h5>
+                                        <p style="margin-bottom:0px; font-style: italic"><?php echo $award_date;?></p>
+                                        <p style="margin-bottom:10px"><?php echo $award_desc;?></p>
                                     </div>
                                 <?php
                             }
