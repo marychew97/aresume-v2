@@ -1,5 +1,19 @@
 body{
     background-color: #2B303A;
+    font-family: 'Slabo 27px', serif;
+}
+
+#btn_view_resume, #btn_download{
+    margin: 0px;
+    background-color: #D64933;
+}
+
+#btn_view_resume a, #btn_download a{
+    color: #fff
+}
+
+#btn_view_resume a:hover, #btn_download a:hover{
+    text-decoration: none;
 }
 
 .card-collection button{
@@ -47,6 +61,7 @@ body{
 .btn-create{
     background-color: #2B303A;
     border: none;
+    font-family: 'Baloo Bhai', cursive;
 }
 
 .btn-file{
@@ -94,7 +109,6 @@ body{
 
 .btn-file:hover, .btn-create:hover{
     background: #2B303A;
-    border: 2px solid #fff;
     box-shadow: 3px 3px 3px #000;
 }
 

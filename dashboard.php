@@ -3,7 +3,7 @@
 <?php require("navbar.php"); ?>
 <?php require('config/db.php'); ?>
 <div class="card card-collection" style="border-color:#2b303a;">
-  <div class="card-header" style="background-color: #2b303a; color: #fff">
+  <div class="card-header" style="background-color: #2b303a; color: #fff;font-family: 'Baloo Bhai', cursive;">
     <h5>My Resume Collection</h5>
   </div>
   <div class="card-body">
@@ -35,8 +35,8 @@
             ?>
               <tr>
                 <th scope="row">Resume <?php echo $row['resume_id']; ?></th>
-                <td><a href="scanner-test-2.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>">Resume <?php echo $row['resume_id']; ?> scanner URL<a></td>
-                <td><a href="generate.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View<a></td>
+                <td><button class="btn" id="btn_view_resume"><a href="generate.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View<a></button></td>
+                <td><button class="btn" id="btn_download"><a href="resume_pdf.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;&nbsp;Download resume<a></button></td>
                 <td><button type="button" class="btn btn-danger btn-resume-delete" id=<?php echo $row['resume_id'];?> data-toggle="modal" data-target="#exampleModal" style="margin:0"><i class="fas fa-trash"></i></button></td>
               </tr>
             <?php
