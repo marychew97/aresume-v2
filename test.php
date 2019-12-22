@@ -136,6 +136,20 @@
   </body>
 </html>
 
+<a href="pdf_url.php?file=resume_for_internship.pdf">PDF</a>
+
+<?php 
+  // instantiate Imagick 
+$im = new Imagick();
+
+$im->setResolution(300,300);
+$im->readimage($_SERVER['DOCUMENT_ROOT'] . '/aresume-v2/resume_for_internship.pdf[0]'); 
+$im->setImageFormat('jpeg');    
+$im->writeImage('thumb.jpg'); 
+$im->clear(); 
+$im->destroy();
+?>
+
 <?php 
     include "config/db.php";
     session_start();

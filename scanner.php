@@ -1,138 +1,114 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-    <title>AResume</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/navbar.css" />
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
-    <!-- <script>
-	  AFRAME.registerComponent('navigate-on-click', {
-	    schema: {
-	      url: {default: ''}
-	    },
-	    init: function () {
-	      var data = this.data;
-	      var el = this.el;
-	      el.addEventListener('click', function () {
-		window.open(data.url, '_blank');
-	      });
-	    }
-	  });        
-	</script> -->
-</head>
+
 
 <?php 
   require('config/db.php');
+  session_start();
+  $user_id = $_GET['user_id'];
+  $resume_id = $_GET['resume_id'];
 ?>
+<!DOCTYPE html>
+<head>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
+<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script> 
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script>
+    AFRAME.registerComponent('navigate-on-click', {
+    schema: {
+      url: {
+        default: ''
+      }
+    },
+    init: function () {
+      console.log("hello")
+      console.log(this.el)
+      var data = this.data;
+      var el = this.el;
+      el.addEventListener('click', function () {
+        //window.location.href = data.url;
+        window.open(data.url, '_blank');
+      });
+    }
+  });
 
-  <body style='margin : 0px; overflow: hidden;'>
-  <div style='position: fixed; top: 10px; left: 50px; width:100%; text-align: center; z-index: 1;'>
-  <?php 
-            $sql = "SELECT * FROM images";
-            $result = mysqli_query($conn, $sql);
-            $rowcount = mysqli_num_rows($result);
-            if($rowcount > 0){ 
-          ?>
-      <a href="load-images.php" class="btn btn-primary" style="left: 50px;">My Gallery</a>
-  <?php 
-            }
-  ?>
-  <?php 
-            $sql = "SELECT * FROM documents";
-            $result = mysqli_query($conn, $sql);
-            $rowcount = mysqli_num_rows($result);
-            if($rowcount > 0){ 
-          ?>
-      <a href="load-documents.php" class="btn btn-primary" style="left: 50px;">My Documents</a>
-  <?php 
-            }
-  ?>
-  </div>
-  <div style='position: fixed; top: 60px; left: 50px; width:100%; text-align: center; z-index: 1;'>
-  <?php 
-            $resume_id = $_GET['id'];
-            $sql = "SELECT * FROM resume WHERE resume_id = $resume_id";
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-            $website = $row['website'];
-            $facebook = $row['facebook'];
-            $github = $row['github'];
-            $linkedin = $row['linkedin'];
-          ?>
-          <?php
-            if(!empty($website)){
-              ?>
-              <a href="<?php echo $website; ?>" style="left: 50px;"><img src="images/website.png" style="width: 50px; height: 50px"/></a>
-              <?php
-            }
-          ?>
-          <?php
-            if(!empty($linkedin)){
-              ?>
-              <a href="<?php echo $linkedin; ?>" style="left: 50px;"><img src="images/linkedin.png" style="width: 50px; height: 50px"/></a>
-              <?php
-            }
-          ?>
-          <?php
-            if(!empty($github)){
-              ?>
-              <a href="<?php echo $github; ?>" style="left: 50px;"><img src="images/github.png" style="width: 50px; height: 50px"/></a>
-              <?php
-            }
-          ?>
-          <?php
-            if(!empty($facebook)){
-              ?>
-              <a href="<?php echo $facebook; ?>" style="left: 50px;"><img src="images/facebook.png" style="width: 50px; height: 50px"/></a>
-              <?php
-            }
-          ?>
-  </div>
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
-          <?php 
-            // $user_id = $_SESSION['id'];
-            // $sql = "SELECT name FROM resume WHERE user_id = $user_id";
-            // $result = mysqli_query($conn, $sql);
-            // $row = mysqli_fetch_assoc($result);
-          ?>
-          <a-text value="Hello, welcome to my profile!" color="gray" width="10" z-offset="0.1" rotation="-90 0 0" position="-0.5 0 -2"></a-text>
-          <?php 
-            $sql = "SELECT * FROM videos";
-            $result = mysqli_query($conn, $sql);
-            $rowcount = mysqli_num_rows($result);
-            if($rowcount == 1){
-              while($row = mysqli_fetch_assoc($result)){
-                $video = $row['video'];
-                echo "<script>console.log('$video')</script>";
-          ?>
-            <a-video src="uploads/videos/<?php echo $video; ?>" width="3" height="3" rotation="-90 0 0"></a-video>
-          <?php
-            }
-          }
-          ?>
-          <?php 
-            $sql = "SELECT * FROM images";
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-                $image = $row['image'];
-          ?>
-          <a-plane width="3" height="3" src="uploads/images/<?php echo $image; ?>" rotation="-90 0 0" position="4 0 0"></a-plane>
-          <!-- <a-plane width="0.5" height="0.5" src="images/photo.png" rotation="-90 0 0" position="-2 0 -0.5" navigate-on-click="url: https://google.com"></a-plane>
-          <a-plane width="0.5" height="0.5" src="images/folder-flat.png" rotation="-90 0 0" position="-2 0 0" navigate-on-click="url: https://google.com>"></a-plane>
-          <a-plane width="0.5" height="0.5" src="images/video1.png" rotation="-90 0 0" position="-2 0 0.5" navigate-on-click="url: https://google.com>"></a-plane> -->
-      </a-marker>
-      <a-entity camera></a-entity>
+  AFRAME.registerComponent('color-randomizer', {
+    init: function () {
+      let colors = ["red", "green", "blue", "black", "orange", "white"]
+      var el = this.el;
+      el.addEventListener('click', (e) => {     
+        this.el.setAttribute('color', colors[Math.floor(Math.random() * colors.length)])
+      });
+    }
+  });
+    </script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='trackingMethod: best; debugUIEnabled:false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4;' vr-mode-ui="enabled: false">
+    <!-- <a-assets> -->
+        <!-- id=“file name“ src=“file url" -->
+        <!-- <a-asset-item id="NSLogo7" src="https://raw.githubusercontent.com/lajunex0/3dmodels/master/NSLogo7.gltf" crossOrigin="anonymous">
+        </a-asset-item>
+    </a-assets> -->
+        <!-- <a-marker preset='hiro'>
+            <a-box color="red"></a-box>
+        </a-marker> -->
+
+        <a-marker preset='custom' type='pattern' url='ar-marker/pattern-profile_marker.patt' >
+            <!-- <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'
+				animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
+				</a-torus-knot> -->
+            <?php 
+                $sql = "SELECT * FROM profile_temp WHERE user_id = $user_id AND resume_id = $resume_id";
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
+                <a-video src="uploads/videos/<?php echo $row['video']; ?>" width="3" height="3" rotation="-90 0 0"></a-video>
+            <?php
+                }
+            ?>
+            
+        </a-marker>
+        <!-- <a-marker preset='custom' type='pattern' url='ar-marker/pattern-educate_marker.patt' > -->
+            <!-- <a-box color="red"></a-box> -->
+        <!-- </a-marker> -->
+        <a-marker preset='custom' type='pattern' url='ar-marker/pattern-ac_marker.patt' >
+            <?php 
+                $sql = "SELECT * FROM activities_temp WHERE user_id = $user_id AND resume_id = $resume_id";
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($result)){
+                    // $photos = explode(",", $row['photos']);
+                    // for($i=0; $i<count($photos); $i++){
+                        // echo "<script>alert(".$photo.");</script>";
+                        ?>
+                        
+                        <!-- <a-plane width="3" height="3" src="uploads/images/<?php //echo $photos[$i];?>" rotation="-90 0 0" position="-90 0 0"></a-plane> -->
+                    <?php 
+                    // }
+            ?>
+                <a-plane width="5" height="5" src="uploads/images/<?php echo $row['photos'];?>" rotation="-90 0 0"></a-plane>
+                <!-- <a-plane width="3" height="3" src="uploads/images/zoo1.jpeg" rotation="-90 0 0" position="-90 0 0"></a-plane> -->
+            <?php
+                }
+            ?>
+        </a-marker>
+        <a-marker preset='kanji' cursor="rayOrigin: mouse;">
+        <!-- <a-marker preset='custom' type='pattern' url='ar-marker/pattern-edu_marker.patt' > -->
+            <a-entity scale='0.5 0.5 0.5' position="0 0.5 0" rotation='-90 0 0'>
+                <a-text color="blue" position="0 1 0" value="Click to open google.com"></a-text>   
+                <a-box material='src:https://i.imgur.com/wjobVTN.jpg'  width="1" height="1" depth='0.1' navigate-on-click="url: https://www.google.com/"></a-box>
+            
+                <a-text color="blue" position="0 -1 0" value="Click to change color"></a-text>   
+                <a-box width="1" position="0 -2 0" height="1" depth='0.1' color-randomizer></a-box>
+            </a-entity>   
+            <!-- <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'
+				animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
+				</a-torus-knot>
+			</a-box> -->
+            <!-- <a-plane width="3" height="3" src="uploads/images/zoo1.jpeg" rotation="-90 0 0"></a-plane> -->
+        </a-marker>
+        <a-camera-static /> 
     </a-scene>
+</body>
+</html>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    </body>
-  </html>

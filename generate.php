@@ -54,7 +54,7 @@
         $award_date = $row['date'];
         $award_desc = $row['award_desc'];
 
-        $query_string = urlencode("https://aresume-procom.000webhostapp.com/armarker-test.php?user_id=".$user_id."&resume_id=".$resume_id);
+        $query_string = urlencode("https://aresume-procom.000webhostapp.com/scanner-test-2.php?user_id=".$user_id."&resume_id=".$resume_id);
 
         ?>
         <div style="background-image:url('images/aresume-template-background.png')" class="page">
@@ -142,7 +142,7 @@
                             <div class="marker">
                                 <p style="color: #fff">Scan here for AR experience</p>
                                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo $query_string;?>" style="display: inline-block; margin: auto; margin-right: 10px" alt="qr code" />
-                                <img src="images/hiro-marker.png" style="display: inline-block; margin: auto;float:right" alt="hiro ar marker" width="100px" height="100px"/>
+                                <!-- <img src="images/hiro-marker.png" style="display: inline-block; margin: auto;float:right" alt="hiro ar marker" width="100px" height="100px"/> -->
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                                 ?>
                                     <div style="background-color: #424b54; padding: 10px 10px 10px 40px; color: #fff; margin-top: 20px">
                                         <h4 style="display:inline-block"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;&nbsp;Education</h4>
-                                        <img src="ar-marker/pattern-educate_marker.png" alt="education marker" style="width: 40px; height: 40px; display: inline-block; margin-left: 20px"/>
+                                        <img src="ar-marker/pattern-edu_marker.png" alt="education marker" style="width: 40px; height: 40px; display: inline-block; margin-left: 20px"/>
                                     </div>
                                     <div style="padding: 10px 10px 10px 40px; color: #424b54; font-weight: bold">
                                         <h5 style="margin-bottom:10px;"><?php echo $institution;?></h5>
@@ -195,7 +195,7 @@
                                 ?>
                                     <div style="background-color: #424b54; padding: 10px 10px 10px 40px; color: #fff; margin-top: 20px">
                                         <h4 style="display:inline-block"><i class="fa fa-puzzle-piece" aria-hidden="true"></i>&nbsp;&nbsp;Activities</h4>
-                                        <img src="ar-marker/pattern-activity_marker.png" alt="activity marker" style="width: 40px; height: 40px; display: inline-block; margin-left: 20px"/>
+                                        <img src="images/barcode5.png" alt="activity marker" style="width: 40px; height: 40px; display: inline-block; margin-left: 20px"/>
                                     </div>
                                     <div style="padding: 10px 10px 10px 40px; color: #424b54;; font-weight: bold">
                                         <h5 style="margin-bottom:10px;"><?php echo $activity_name;?></h5>
@@ -211,7 +211,7 @@
                                 ?>
                                     <div style="background-color: #424b54; padding: 10px 10px 10px 40px; color: #fff; margin-top: 20px">
                                         <h4 style="display:inline-block"><i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;Awards</h4>
-                                        <img src="ar-marker/pattern-award_marker.png" alt="award marker" style="width: 40px; height: 40px; display: inline-block; margin-left: 20px"/>
+                                        <img src="ar-marker/kanji.png" alt="award marker" style="width: 40px; height: 40px; display: inline-block; margin-left: 20px"/>
                                     </div>
                                     <div style="padding: 10px 10px 10px 40px; color: #424b54;; font-weight: bold">
                                         <h5 style="margin-bottom:10px;"><?php echo $award;?>, <?php echo $awarder;?></h5>
