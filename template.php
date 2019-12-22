@@ -18,7 +18,7 @@
                 while($row = mysqli_fetch_assoc($result)){
             ?>
               <div class="col col-md-3">
-              <div class="card mb-3">
+              <div class="card mb-3" style="margin: 20px">
                 <form method="post" action="template-submit.php" id="template-form"> 
                   <img src="images/<?php echo $row['template'];?>" alt="<?php echo $row['template']; ?>" class="card-img-top" style="width: 100%"/> 
                    <div class="card-body" style="background-color: #2B303A">
