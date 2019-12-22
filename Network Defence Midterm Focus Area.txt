@@ -1,0 +1,17 @@
+Focus area BUW3333
+
+- Network Signature (definition)
+- Categories of suspicious TCP/IP packets 
+- Denial-of-service (DoS) attack under the Multiple-Packet Attacks 
+- Packet Sniffer 
+- Categories of suspicious traffic signatures 
+- Ping Sweeps
+- Common Vulnerabilities and Exposures (CVE) 
+
+- terms in the context of cryptography
+- requirements for secure use of symmetric encryption
+- block cipher and a stream cipher
+- symmetric block ciphers
+- Message Authentication (definition)
+- important aspects of message authentication
+- the process of message authentication using a Message Authentication Code (MAC)
