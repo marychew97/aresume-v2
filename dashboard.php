@@ -26,6 +26,7 @@
                 <th scope="col">Resume</th>
                 <th scope="col">View Online Resume</th>
                 <th scope="col">Download Resume</th>
+                <th scope="col">Edit Resume</th>
                 <th scope="col">Delete Resume</th>
               </tr>
             </thead>
@@ -37,6 +38,7 @@
                 <th scope="row">Resume <?php echo $row['resume_id']; ?></th>
                 <td><button class="btn" id="btn_view_resume"><a href="generate.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View<a></button></td>
                 <td><button class="btn" id="btn_download"><a href="resume_pdf.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;&nbsp;Download<a></button></td>
+                <td><button class="btn" id="btn_edit"><a href="edit_resume.php?id=<?php echo $row['resume_id'];?>&user_id=<?php echo $id?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Edit<a></button></td>
                 <td><button type="button" class="btn btn-danger btn-resume-delete" id=<?php echo $row['resume_id'];?> data-toggle="modal" data-target="#exampleModal" style="margin:0"><i class="fas fa-trash"></i>&nbsp;&nbsp;Delete</button></td>
               </tr>
             <?php

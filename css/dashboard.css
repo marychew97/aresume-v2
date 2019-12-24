@@ -3,16 +3,16 @@ body{
     font-family: 'Slabo 27px', serif;
 }
 
-#btn_view_resume, #btn_download{
+#btn_view_resume, #btn_download, #btn_edit{
     margin: 0px;
     background-color: #D64933;
 }
 
-#btn_view_resume a, #btn_download a{
+#btn_view_resume a, #btn_download a, #btn_edit a{
     color: #fff
 }
 
-#btn_view_resume a:hover, #btn_download a:hover{
+#btn_view_resume a:hover, #btn_download a:hover, #btn_edit a:hover{
     text-decoration: none;
 }
 
