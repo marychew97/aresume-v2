@@ -1,3 +1,8 @@
+<? header("Content-Type: application/vnd.ms-word");
+header("Expires: 0");
+header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+header("content-disposition: attachment;filename=Report.doc");
+?>
 <?php require('components/header.php');?>
 <?php require('config/db.php'); ?>
 
@@ -141,7 +146,7 @@
                         ?>
                             <div class="marker">
                                 <p style="color: #fff">Scan here for AR experience</p>
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo $query_string;?>" style="display: inline-block; margin: auto; margin-right: 10px" alt="qr code" />
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo $query_string;?>" style="display: block; margin: auto;" alt="qr code" />
                                 <!-- <img src="images/hiro-marker.png" style="display: inline-block; margin: auto;float:right" alt="hiro ar marker" width="100px" height="100px"/> -->
                             </div>
                         </div>
