@@ -6,4 +6,19 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
+    'HTML5_Data' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Data.php',
+    'HTML5_InputStream' => $vendorDir . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+    'HTML5_Parser' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Parser.php',
+    'HTML5_Tokenizer' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+    'HTML5_TreeBuilder' => $vendorDir . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
+    'PdfCrowd' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'PdfcrowdException' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'Pdfcrowd\\ConnectionHelper' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'Pdfcrowd\\Error' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'Pdfcrowd\\HtmlToImageClient' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'Pdfcrowd\\HtmlToPdfClient' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'Pdfcrowd\\ImageToImageClient' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'Pdfcrowd\\ImageToPdfClient' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    'Pdfcrowd\\PdfToPdfClient' => $vendorDir . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
 );

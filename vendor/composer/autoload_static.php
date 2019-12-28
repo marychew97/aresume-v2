@@ -22,10 +22,15 @@ class ComposerStaticInita2608e3f85d5de10b324cb11eceb597f
             'Symfony\\Component\\PropertyAccess\\' => 33,
             'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\Inflector\\' => 28,
+            'Svg\\' => 4,
         ),
         'M' => 
         array (
             'MyCLabs\\Enum\\' => 13,
+        ),
+        'F' => 
+        array (
+            'FontLib\\' => 8,
         ),
         'E' => 
         array (
@@ -33,6 +38,7 @@ class ComposerStaticInita2608e3f85d5de10b324cb11eceb597f
         ),
         'D' => 
         array (
+            'Dompdf\\' => 7,
             'DASPRiD\\Enum\\' => 13,
         ),
         'B' => 
@@ -62,13 +68,25 @@ class ComposerStaticInita2608e3f85d5de10b324cb11eceb597f
         array (
             0 => __DIR__ . '/..' . '/symfony/inflector',
         ),
+        'Svg\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
+        ),
         'MyCLabs\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
         ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
         'Endroid\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/endroid/qrcode/src',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
         'DASPRiD\\Enum\\' => 
         array (
@@ -80,11 +98,41 @@ class ComposerStaticInita2608e3f85d5de10b324cb11eceb597f
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'Sabberworm\\CSS' => 
+            array (
+                0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
+        ),
+    );
+
+    public static $classMap = array (
+        'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
+        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
+        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
+        'PdfCrowd' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'PdfcrowdException' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'Pdfcrowd\\ConnectionHelper' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'Pdfcrowd\\Error' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'Pdfcrowd\\HtmlToImageClient' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'Pdfcrowd\\HtmlToPdfClient' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'Pdfcrowd\\ImageToImageClient' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'Pdfcrowd\\ImageToPdfClient' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+        'Pdfcrowd\\PdfToPdfClient' => __DIR__ . '/..' . '/pdfcrowd/pdfcrowd/pdfcrowd.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInita2608e3f85d5de10b324cb11eceb597f::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita2608e3f85d5de10b324cb11eceb597f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita2608e3f85d5de10b324cb11eceb597f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInita2608e3f85d5de10b324cb11eceb597f::$classMap;
 
         }, null, ClassLoader::class);
     }

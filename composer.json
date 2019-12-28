@@ -1,5 +1,7 @@
 {
     "require": {
-        "endroid/qrcode": "^3.5"
+        "endroid/qrcode": "^3.5",
+        "dompdf/dompdf": "^0.8.3",
+        "pdfcrowd/pdfcrowd": "^4.11"
     }
 }
