@@ -3,14 +3,14 @@
 <?php require("navbar.php"); ?>
 <?php require("config/db.php"); ?>
 
-<div class="container-fluid form-content">
-    <h6>My Resume Completion</h6>
+<div class="container-fluid form-content" style="font-family: 'Baloo Bhai', cursive;">
+    <h6 style="color: #fff">My Resume Completion</h6>
     <div class="progress" style="height: 30px" id="progress-bar">
         <!-- <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>
         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div> -->
     </div>
     <div class="tab-container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="display:none">
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
         </li>
@@ -84,30 +84,30 @@
                     <small class="form-text text-muted" style="text-align: center">Provide links for any social media that you have</small>
                     <div class="container-fluid" style="margin-top: 50px">
                         <div class="row">
-                            <div class="col col-sm-3">
+                            <!-- <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Website</label>
                                     <input type="text" class="form-control" name="website" id="website" aria-describedby="emailHelp" placeholder="Your website link">
                                 </div>
-                            </div>
-                            <div class="col col-sm-3">
+                            </div> -->
+                            <div class="col col-sm-6">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;&nbsp;LinkedIn</label>
+                                    <label for="exampleInputPassword1"><i class="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</label>
                                     <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="Your LinkedIn profile link">
                                 </div>
                             </div>
-                            <div class="col col-sm-3">
+                            <div class="col col-sm-6">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1"><i class="fa fa-github" aria-hidden="true"></i>&nbsp;&nbsp;GitHub</label>
+                                    <label for="exampleInputPassword1"><i class="fab fa-github"></i>&nbsp;&nbsp;GitHub</label>
                                     <input type="text" class="form-control" name="github" id="github" placeholder="Your GitHub profile link">
                                 </div>
                             </div>
-                            <div class="col col-sm-3">
+                            <!-- <div class="col col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1"><i class="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;&nbsp;Facebook</label>
                                     <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Your Facebook profile link">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <h6 style="text-align: center; margin-top: 100px">Video</h6>

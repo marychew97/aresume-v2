@@ -6,14 +6,10 @@
     $user_id = $_GET['user_id'];
 ?>
 
-<div class="container-fluid form-content">
-    <h6>My Resume Completion</h6>
-    <div class="progress" style="height: 30px" id="progress-bar">
-        <!-- <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Personal information &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>
-        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Education background</div> -->
-    </div>
+<div class="container-fluid form-content" style="font-family: 'Baloo Bhai', cursive;">
+    <h3 style="color:#fff; text-align: center">Edit Resume</h3>
     <div class="tab-container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style="display: none">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
             </li>
@@ -110,13 +106,13 @@
                                     </div> -->
                                     <div class="col col-sm-6">
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;&nbsp;LinkedIn</label>
+                                            <label for="exampleInputPassword1"><i class="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</label>
                                             <input type="text" class="form-control" name="linkedin" id="linkedin" value="<?php echo $row['linkedin'];?>" placeholder="Your LinkedIn profile link">
                                         </div>
                                     </div>
                                     <div class="col col-sm-6">
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1"><i class="fa fa-github" aria-hidden="true"></i>&nbsp;&nbsp;GitHub</label>
+                                            <label for="exampleInputPassword1"><i class="fab fa-github"></i>&nbsp;&nbsp;GitHub</label>
                                             <input type="text" class="form-control" name="github" id="github" value="<?php echo $row['github'];?>" placeholder="Your GitHub profile link">
                                         </div>
                                     </div>
@@ -401,10 +397,10 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="finish-tab">
-                    <div style="margin-top: 50px">
+                    <div style="margin-top: 10px">
                         <div id="finish-form">
-                            <i class="fa fa-smile-o" aria-hidden="true" style="font-size: 50px; display: block; margin: auto; text-align: center; margin-bottom: 10px;"></i>
-                            <h4 style="text-align: center;">Yay! You have created your own resume!</h4>   
+                            <i class="fa fa-smile-o" aria-hidden="true" style="font-size: 50px; display: block; margin: auto; text-align: center; margin-bottom: 10px"></i>
+                            <h4 style="text-align: center;">Yay! Your resume is edited successfully!</h4>   
                             <h6 style="text-align: center; color: rgb(184, 184, 184)">Click Finish button to return to dashboard</h6>   
                             <a class="btn btn-primary btn-file" href="dashboard.php"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Finish</a> 
                         </div>
@@ -417,30 +413,6 @@
             
             </div>
         </div>
-
-    <!-- Delete Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete image?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" action="delete-image.php" >
-                <div class="modal-body">
-                    Are you sure you want to delete this image?
-                    <input type="hidden" id="delete-id" name="id"/>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </div>
-            </form>
-            </div>
-        </div>
-    </div>
 </div>
 
 
