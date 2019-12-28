@@ -64,7 +64,7 @@ $pdf = new FPDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->Image('images/'.$template,0,0,220);
-if(!empty($template)){
+if(!empty($profile_image)){
     $pdf->Image('uploads/images/'.$profile_image,20,10,35);
 }
 $pdf->SetFont('Arial','',16);

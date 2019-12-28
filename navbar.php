@@ -1,4 +1,3 @@
-<?php session_start();?>
 <nav class="navbar navbar-expand-lg navbar-custom">
   <a class="navbar-brand" href="dashboard.php">
       <img src="images/resumelogo.png" alt="aresume logo" width="100px" height="50px"/>
