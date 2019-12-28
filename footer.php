@@ -120,6 +120,25 @@
                 $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Profile &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
             }
         })
+    });
+
+    $('#profile-edit-btn').on('click', function(e){
+        e.preventDefault();
+        var form = $('#edit-profile')[0];
+        var formData = new FormData(form);
+        console.log(formData)
+        $.ajax({
+            type: 'post',
+            url: 'edit-profile.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data);
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Profile &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
     })
 
     $('#check-edu-date').on('change', function(e){
@@ -138,6 +157,24 @@
         $.ajax({
             type: 'post',
             url: 'create-institution.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data)
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Education &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
+    });
+
+    $('#education-edit-btn').on('click', function(e){
+        e.preventDefault();
+        var form = $('#edit-institution')[0];
+        var formData = new FormData(form);
+        $.ajax({
+            type: 'post',
+            url: 'edit-institution.php',
             data: formData,
             contentType: false,
             processData: false,
@@ -179,6 +216,24 @@
         })
     });
 
+    $('#work-edit-btn').on('click', function(e){
+        e.preventDefault();
+        var form = $('#edit-work')[0];
+        var formData = $('#edit-work').serialize();
+        // var formData = new FormData(form);
+        console.log(formData);
+        $.ajax({
+            type: 'post',
+            url: 'edit-work.php',
+            data: formData,
+            success: function (data) {
+                console.log(data)
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 16.7%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Work Experience &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
+    });
+
     $('#activity-section-btn').on('click', function(e){
         e.preventDefault();
         var form = $('#create-activities')[0];
@@ -197,6 +252,24 @@
         })
     });
 
+    $('#activity-edit-btn').on('click', function(e){
+        e.preventDefault();
+        var form = $('#edit-activities')[0];
+        var formData = new FormData(form);
+        $.ajax({
+            type: 'post',
+            url: 'edit-activities.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data)
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Activities &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
+    });
+
     $('#award-section-btn').on('click', function(e){
         e.preventDefault();
         var form = $('#create-award')[0];
@@ -204,6 +277,24 @@
         $.ajax({
             type: 'post',
             url: 'create-award.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data)
+                $('html, body').animate({scrollTop:0}, 'fast');
+                $('#progress-bar').append('<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Awards &nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i></div>')
+            }
+        })
+    });
+
+    $('#award-edit-btn').on('click', function(e){
+        e.preventDefault();
+        var form = $('#edit-award')[0];
+        var formData = new FormData(form);
+        $.ajax({
+            type: 'post',
+            url: 'edit-award.php',
             data: formData,
             contentType: false,
             processData: false,
